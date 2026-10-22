@@ -1,0 +1,1066 @@
+body {
+    background-color: #1a1a1a;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+   
+header img {
+    position: fixed;  
+    left:10px; 
+    top: 10px;            
+    right: 10px;          
+    width: 120px;          
+    height: 80px;
+}
+
+
+
+
+.link-home {
+    color:#ff5a00; 
+    text-decoration: none;}
+.link-courts{ 
+        color:#ff5a00;
+        text-decoration: none}     
+.link-community{
+    color:#ff5a00;
+    text-decoration: none;}
+.link-blog{
+    color:#ff5a00;
+    text-decoration: none;}
+.link-contact{
+    color:#ff5a00;
+    text-decoration: none;}
+
+.button-signin{ 
+    display: inline-block;
+    width: 25%;
+    margin: 10px;
+    padding: 15px 5px;
+    background-color:#ff5a00;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 0.85em;
+}
+
+
+
+nav {
+    text-align: right;
+    padding: 15px;
+    background-color: #222;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+body {
+    background-color: #101010;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+}
+
+
+
+
+
+.hero {
+    width: 50%;
+    min-height: 100vh;
+    padding: 48px 26px 20px;
+   
+}
+
+/* TEXTO SUPERIOR */
+.eyebrow {
+    color: #ff5a00;
+    font-size: 16px;
+    font-weight: 100;
+    letter-spacing: 10px;
+    margin-bottom: 32px;
+}
+
+/* TÍTULO PRINCIPAL */
+.hero h1 {
+    font-family: 'Barlow Condensed', Impact, sans-serif;
+    font-size: 100px;
+    font-weight: 800;
+    line-height: 0.91;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.hero h1 span {
+    color: #ff5a00;
+}
+ 
+.description {
+    color: #c3c3c3;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.6;
+    margin-top: 48px;
+    max-width: 650px;
+}
+
+
+
+/* LÍNEA DIVISORIA */
+.divider {
+    width: min(100%, 576px);
+    height: 1px;
+    background-color: #605b5b;
+    margin-top: 48px;
+    margin-bottom: 40px;
+}
+
+/* ESTADÍSTICAS */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: min(100%, 576px);
+    gap: 20px;
+}
+
+/* CADA ESTADÍSTICA */
+.stat h2 {
+    font-family: 'Barlow Condensed', Impact, sans-serif;
+    font-size: 46px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+.stat p {
+    color: #929292;
+    font-size: 15px;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+}
+/* ========================================
+   SECCIÓN YOUR PROFILE
+======================================== */
+
+.profile-section {
+    background-color: #0b0b0b;
+    color: #ffffff;
+    padding: 58px 35px 36px;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ENCABEZADO */
+
+.profile-header {
+    margin-bottom: 60px;
+}
+
+.section-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    color: #ff4d24;
+    font-family: 'Barlow Condensed', Impact, sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 3px;
+
+    margin-bottom: 30px;
+}
+
+/* LÍNEA NARANJA */
+
+.orange-line {
+    display: inline-block;
+    width: 26px;
+    height: 3px;
+    background-color: #ff4d24;
+}
+
+/* TÍTULO PRINCIPAL */
+
+.profile-header h2 {
+    font-family: 'Barlow Condensed', Impact, sans-serif;
+    font-size: clamp(38px, 4.4vw, 64px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    margin-bottom: 18px;
+}
+
+/* DESCRIPCIÓN */
+
+.profile-description {
+    color: #bcbcbc;
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 700px;
+}
+
+/* DISTRIBUCIÓN DE TARJETAS */
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 27px;
+    align-items: stretch;
+}
+
+/* TARJETAS */
+
+.profile-card,
+.matches-card {
+    background-color: #171819;
+    border: 1px solid #383838;
+    border-radius: 34px;
+    padding: 34px 33px;
+    min-width: 0;
+}
+
+ INFORMACIÓN DEL USUARIO
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    margin-bottom: 20px;
+}
+
+/* CÍRCULO CON LAS INICIALES */
+
+.user-avatar {
+    width: 67px;
+    height: 67px;
+    min-width: 67px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #ff5a0a;
+    border-radius: 50%;
+
+    font-family: 'Barlow Condensed', Impact, sans-serif;
+    font-size: 27px;
+    font-weight: 900;
+}
+
+/* NOMBRE Y NIVEL */
+
+.user-details h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.user-details p {
+    color: #a7a7a7;
+    font-size: 14px;
+}
+
+/* DEPORTES FAVORITOS */
+
+.sports-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-bottom: 21px;
+}
+
+.sports-list span {
+    background-color: #28292a;
+    border: 1px solid #484848;
+    border-radius: 25px;
+
+    padding: 8px 15px;
+
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ESTADÍSTICAS DEL PERFIL */
+
+.profile-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.profile-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 95px;
+    background-color: #232425;
+    border-radius: 13px;
+    text-align: center;
+}
+
+.profile-stat h3 {
+    color: #ff7900;
+    font-size: 27px;
+    font-weight: 500;
+    margin-bottom: 11px;
+}
+
+.profile-stat p {
+    color: #a0a0a0;
+    font-size: 11px;
+}
+
+/* PRÓXIMOS PARTIDOS */
+
+.matches-label {
+    margin-bottom: 17px;
+}
+
+/* CADA PARTIDO */
+
+.match {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 17px;
+}
+
+/* FECHA DEL PARTIDO */
+
+.match-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 58px;
+    min-width: 58px;
+    height: 74px;
+
+    background-color: #252627;
+    border-radius: 13px;
+}
+
+.match-date strong {
+    font-size: 25px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.match-date span {
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 3px;
+}
+
+/* INFORMACIÓN DEL PARTIDO */
+
+.match-info {
+    min-width: 0;
+}
+
+.match-info h3 {
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 5px;
+}
+
+.match-info p {
+    color: #999999;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* ========================================
+   DISEÑO RESPONSIVE
+======================================== */
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+
+    .profile-section {
+        padding: 45px 25px;
+    }
+
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-header {
+        margin-bottom: 40px;
+    }
+
+    .profile-header h2 {
+        font-size: clamp(36px, 6vw, 56px);
+    }
+}
+
+/* TELÉFONOS */
+
+@media (max-width: 560px) {
+
+    .profile-section {
+        padding: 35px 18px;
+    }
+
+    .profile-header h2 {
+        font-size: 36px;
+        line-height: 1.1;
+    }
+
+    .profile-description {
+        font-size: 15px;
+    }
+
+    .desktop-break {
+        display: none;
+    }
+
+    .profile-card,
+    .matches-card {
+        padding: 25px 20px;
+        border-radius: 25px;
+    }
+
+    .user-avatar {
+        width: 58px;
+        height: 58px;
+        min-width: 58px;
+        font-size: 23px;
+    }
+
+    .user-details h3 {
+        font-size: 17px;
+    }
+
+    .user-details p {
+        font-size: 12px;
+    }
+
+    .sports-list {
+        gap: 7px;
+    }
+
+    .sports-list span {
+        padding: 7px 10px;
+        font-size: 11px;
+    }
+
+    .profile-stats {
+        gap: 7px;
+    }
+
+    .profile-stat {
+        min-height: 82px;
+    }
+
+    .profile-stat h3 {
+        font-size: 23px;
+    }
+
+    .profile-stat p {
+        font-size: 9px;
+    }
+
+    .match {
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .match-date {
+        width: 50px;
+        min-width: 50px;
+        height: 65px;
+    }
+
+    .match-date strong {
+        font-size: 22px;
+    }
+
+    .match-info h3 {
+        font-size: 14px;
+    }
+
+    .match-info p {
+        font-size: 12px;
+    }
+}
+/* ========================================
+   SECCIÓN COURTS
+======================================== */
+
+.courts-section {
+    background-color: #ffffff;
+    color: #111111;
+    padding: 35px 5% 65px;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    scroll-margin-top: 20px;
+}
+
+.courts-section * {
+    box-sizing: border-box;
+}
+
+
+/* ENCABEZADO */
+
+.courts-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.courts-title {
+    min-width: 0;
+}
+
+.courts-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ff4d24;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 0 0 18px;
+}
+
+.courts-label span {
+    display: inline-block;
+    width: 24px;
+    height: 2px;
+    background-color: #ff4d24;
+}
+
+.courts-title h2 {
+    font-family: Impact, "Arial Narrow", sans-serif;
+    font-size: clamp(38px, 4.5vw, 64px);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+
+/* BOTÓN DEL MAPA */
+
+.map-button {
+    flex-shrink: 0;
+    border: none;
+    border-radius: 40px;
+    background-color: #101426;
+    color: #ffffff;
+    padding: 20px 32px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.map-button:hover {
+    background-color: #252b42;
+}
+
+
+/* FILTROS */
+
+.sports-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 35px;
+}
+
+.filter-button {
+    border: 1px solid #e0e3e8;
+    border-radius: 30px;
+    background-color: #f1f3f5;
+    color: #111111;
+    padding: 13px 24px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.filter-button.active {
+    background-color: #ff4d24;
+    border-color: #ff4d24;
+    color: white;
+}
+
+
+/* CUADRÍCULA DE TARJETAS */
+
+.courts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+
+/* TARJETAS */
+
+.court-card {
+    min-width: 0;
+    overflow: hidden;
+    background-color: #f8f9fa;
+    border: 1px solid #e0e3e8;
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.court-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.09);
+}
+
+
+/* IMÁGENES */
+
+.court-image-container {
+    height: 225px;
+    position: relative;
+    overflow: hidden;
+}
+
+.court-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.court-rating {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background-color: #ffffff;
+    color: #111111;
+    padding: 10px 13px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* INFORMACIÓN DE LAS TARJETAS */
+
+.court-content {
+    padding: 20px 24px 24px;
+}
+
+.court-content h3 {
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 5px;
+}
+
+.court-location {
+    color: #777f89;
+    font-size: 15px;
+    margin: 0;
+}
+
+
+/* PRECIO */
+
+.court-price {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 23px 0 22px;
+}
+
+.court-price strong {
+    font-size: 30px;
+    font-weight: 900;
+    color: #111111;
+}
+
+.court-price > span:not(.court-arrow) {
+    color: #777f89;
+    font-size: 15px;
+}
+
+.court-arrow {
+    margin-left: auto;
+    font-size: 20px;
+}
+
+
+/* BOTÓN BOOK COURT */
+
+.book-button {
+    width: 100%;
+    border: none;
+    border-radius: 13px;
+    padding: 18px;
+    background: linear-gradient(100deg, #ff4d24, #ff7900);
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 7px 18px rgba(255, 91, 20, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.book-button:hover {
+    transform: translateY(-2px);
+}
+
+
+/* OCULTAR TARJETAS AL FILTRAR */
+
+.court-card.hidden {
+    display: none;
+}
+
+
+/* ========================================
+   VENTANA DE RESERVA
+======================================== */
+
+.booking-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(7px);
+    overflow-y: auto;
+}
+
+.booking-overlay[hidden] {
+    display: none;
+}
+
+.booking-modal {
+    position: relative;
+    width: 100%;
+    max-width: 550px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    background-color: #ffffff;
+    color: #171717;
+    border-radius: 24px;
+    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.25);
+}
+
+
+/* IMAGEN DE LA VENTANA */
+
+.booking-image {
+    display: block;
+    width: 100%;
+    height: 195px;
+    object-fit: cover;
+    background-color: #eeeeee;
+}
+
+
+/* BOTÓN PARA CERRAR */
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #171717;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+
+/* CONTENIDO DE LA VENTANA */
+
+.booking-content {
+    padding: 25px 28px 28px;
+}
+
+.booking-content h2 {
+    font-size: 25px;
+    line-height: 1.25;
+    margin: 0 0 7px;
+}
+
+.booking-location {
+    color: #777f89;
+    font-size: 15px;
+    margin: 0 0 20px;
+}
+
+
+/* PRECIO Y DEPORTE */
+
+.booking-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 17px 20px;
+    background-color: #f0f2f4;
+    border: 1px solid #e0e3e8;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+.booking-summary > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.booking-summary span {
+    color: #747d87;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.booking-summary strong {
+    color: #171717;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.booking-summary .booking-sport {
+    text-align: right;
+    align-items: flex-end;
+}
+
+.booking-summary .booking-sport strong {
+    font-size: 17px;
+}
+
+
+/* DISPONIBILIDAD */
+
+.availability-title {
+    color: #747d87;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin: 0 0 13px;
+}
+
+
+/* BOTONES DE LOS DÍAS */
+
+.date-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-bottom: 18px;
+}
+
+.date-button {
+    padding: 11px 16px;
+    border: 1px solid #e0e3e8;
+    border-radius: 13px;
+    background-color: #f0f2f4;
+    color: #171717;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.date-button.active {
+    background-color: #ff4d24;
+    border-color: #ff4d24;
+    color: #ffffff;
+}
+
+
+/* HORARIOS */
+
+.time-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 9px;
+}
+
+.time-button {
+    min-width: 0;
+    padding: 13px 5px;
+    border: 1px solid #e0e3e8;
+    border-radius: 13px;
+    background-color: #f0f2f4;
+    color: #171717;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.time-button.selected {
+    background-color: #ff4d24;
+    border-color: #ff4d24;
+    color: #ffffff;
+}
+
+.time-button.unavailable {
+    background-color: #f7f8f9;
+    color: #a6a6a6;
+    text-decoration: line-through;
+    cursor: not-allowed;
+}
+
+
+/* CONFIRMAR RESERVA */
+
+.confirm-booking {
+    width: 100%;
+    margin-top: 20px;
+    padding: 16px;
+    border: none;
+    border-radius: 13px;
+    background: linear-gradient(100deg, #ff4d24, #ff7900);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.confirm-booking:disabled {
+    background: #d5d7da;
+    color: #777f89;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+.booking-message {
+    color: #555d66;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 12px 0 0;
+}
+
+
+/* ========================================
+   RESPONSIVE: TABLET
+======================================== */
+
+@media (max-width: 1000px) {
+
+    .courts-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .courts-header {
+        align-items: flex-start;
+    }
+
+    .map-button {
+        padding: 16px 22px;
+    }
+}
+
+
+/* ========================================
+   RESPONSIVE: TELÉFONOS
+======================================== */
+
+@media (max-width: 600px) {
+
+    .courts-section {
+        padding: 35px 18px;
+    }
+
+    .courts-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+    }
+
+    .courts-title h2 {
+        font-size: clamp(35px, 9vw, 48px);
+    }
+
+    .map-button {
+        width: 100%;
+    }
+
+    .courts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .court-image-container {
+        height: 220px;
+    }
+
+    .court-content {
+        padding: 19px;
+    }
+
+    .booking-overlay {
+        padding: 10px;
+        align-items: center;
+    }
+
+    .booking-modal {
+        max-height: calc(100vh - 20px);
+        border-radius: 19px;
+    }
+
+    .booking-image {
+        height: 160px;
+    }
+
+    .booking-content {
+        padding: 20px 17px;
+    }
+
+    .booking-content h2 {
+        font-size: 21px;
+    }
+
+    .booking-summary {
+        padding: 14px;
+        gap: 8px;
+    }
+
+    .booking-summary strong {
+        font-size: 21px;
+    }
+
+    .booking-summary .booking-sport strong {
+        font-size: 13px;
+    }
+
+    .time-grid {
+        gap: 7px;
+    }
+
+    .time-button {
+        font-size: 12px;
+        padding: 12px 3px;
+    }
+
+    .date-button {
+        padding: 10px 12px;
+    }
+}

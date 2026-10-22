@@ -1,0 +1,479 @@
+ <!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRIME</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header>
+        <img src="Logo blanco sin fondo.png" alt="Logo Prime" class="logo-esquina">
+    </header>
+
+    <nav>
+        <a href="#home" class="link-home">Home</a>
+        <a href="#courts" class="link-courts">Courts</a>
+        <a href="#community" class="link-community">Community</a>
+        <a href="#blog" class="link-blog">Blog</a>
+        <a href="#contact" class="link-contact">Contact</a>
+        <a href="sign in" class="button-signin">Sign In</a>
+        <link rel="stylesheet" href="styles.css">
+
+    </nav>
+ 
+
+ <main class="hero">
+
+        <p class="eyebrow">sports platform</p>
+
+        
+        <h1>
+            CONNECT, TRAIN<br>
+            AND PLAY,<br>
+            WITH <span>PRIME.</span>
+        </h1>
+
+      
+        <p class="description">
+            Find courts, meet certified coaches, and organize<br class="desktop-break">
+            matches with a sports community all in one place.
+        </p>
+
+        <!-- Línea divisoria -->
+        <div class="divider"></div>
+
+        <!-- Estadísticas -->
+        <section class="stats">
+
+            <div class="stat">
+                <h2>+30</h2>
+                <p>Courts Available</p>
+            </div>
+
+            <div class="stat">
+                <h2>+50</h2>
+                <p>Certified Coaches</p>
+            </div>
+
+            <div class="stat">
+                <h2>+500</h2>
+                <p>Active Users</p>
+            </div>
+
+        </section>
+
+    </main>
+    
+<!-- SECCIÓN YOUR PROFILE -->
+<section class="profile-section">
+
+    <!-- Encabezado -->
+    <div class="profile-header">
+
+        <p class="section-label">
+            <span class="orange-line"></span>
+            YOUR PROFILE
+        </p>
+
+        <h2>YOUR PROGRESS, ALWAYS IN VIEW.</h2>
+
+        <p class="profile-description">
+            A personal dashboard with your favorite sports, stats, and upcoming
+            <br class="desktop-break">
+            matches, ready as soon as you log in.
+        </p>
+
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="profile-grid">
+
+        <!-- TARJETA DE PERFIL -->
+        <div class="profile-card">
+
+            <div class="user-info">
+
+                <div class="user-avatar">
+                    JR
+                </div>
+
+                <div class="user-details">
+                    <h3>Julia Reyes</h3>
+                    <p>Panama City · Intermediate level</p>
+                </div>
+
+            </div>
+
+            <!-- Deportes favoritos -->
+            <div class="sports-list">
+                <span>Soccer 5-a-side</span>
+                <span>Padel</span>
+                <span>Running</span>
+            </div>
+
+            <!-- Estadísticas -->
+            <div class="profile-stats">
+
+                <div class="profile-stat">
+                    <h3>42</h3>
+                    <p>MATCHES</p>
+                </div>
+
+                <div class="profile-stat">
+                    <h3>19</h3>
+                    <p>WORKOUTS</p>
+                </div>
+
+                <div class="profile-stat">
+                    <h3>7</h3>
+                    <p>ACHIEVEMENTS</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- TARJETA DE PRÓXIMOS PARTIDOS -->
+        <div class="matches-card">
+
+            <p class="section-label matches-label">
+                <span class="orange-line"></span>
+                UPCOMING MATCHES
+            </p>
+
+            <!-- PARTIDO 1 -->
+            <div class="match">
+
+                <div class="match-date">
+                    <strong>18</strong>
+                    <span>JUL</span>
+                </div>
+
+                <div class="match-info">
+                    <h3>Soccer 5 — Los Halcones</h3>
+                    <p>
+                        Estadio Agustín "Muquita" Sánchez · 7:00 PM
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- PARTIDO 2 -->
+            <div class="match">
+
+                <div class="match-date">
+                    <strong>21</strong>
+                    <span>JUL</span>
+                </div>
+
+                <div class="match-info">
+                    <h3>Coaching session — Padel</h3>
+                    <p>
+                        Complejo Deportivo de La Feria de La Chorrera · 6:30 AM
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ========================================
+     SECCIÓN COURTS
+======================================== -->
+
+<section class="courts-section" id="courts">
+
+    <!-- ENCABEZADO -->
+    <div class="courts-header">
+
+        <div class="courts-title">
+
+            <p class="courts-label">
+                <span></span>
+                SPORTS COURTS
+            </p>
+
+            <h2>
+                BOOK YOUR COURT IN<br>
+                UNDER A MINUTE.
+            </h2>
+
+        </div>
+
+        <button class="map-button" id="mapButton">
+            View Interactive Map
+        </button>
+
+    </div>
+
+    <!-- FILTRO DE DEPORTES -->
+    <div class="sports-filter">
+
+        <button class="filter-button active" data-filter="all">
+            All Sports
+        </button>
+
+        <button class="filter-button" data-filter="swimming">
+            Swimming
+        </button>
+
+        <button class="filter-button" data-filter="volleyball">
+            Volleyball
+        </button>
+
+        <button class="filter-button" data-filter="football">
+            Football
+        </button>
+
+    </div>
+
+    <!-- TARJETAS DE CANCHAS -->
+    <div class="courts-grid">
+
+        <!-- TARJETA 1: PISCINA -->
+        <article class="court-card" data-sport="swimming">
+
+            <div class="court-image-container">
+
+                <img
+                    src="imagenes/piscina.jpg"
+                    alt="La Chorrera Municipal Pool"
+                    class="court-image"
+                >
+
+                <span class="court-rating">★ 4.6</span>
+
+            </div>
+
+            <div class="court-content">
+
+                <h3>La Chorrera Municipal Pool</h3>
+
+                <p class="court-location">
+                    La Chorrera, Panama West
+                </p>
+
+                <div class="court-price">
+                    <strong>$25</strong>
+                    <span>/ hour</span>
+                    <span class="court-arrow">↗</span>
+                </div>
+
+                <button
+                    class="book-button"
+                    data-court="pool"
+                >
+                    Book Court
+                </button>
+                
+            </div>
+
+        </article>
+
+
+        <!-- TARJETA 2: VOLEIBOL -->
+        <article class="court-card" data-sport="volleyball">
+
+            <div class="court-image-container">
+
+                <img
+                    src="imagenes/voley.webp"
+                    alt="La Chorrera Volley Court"
+                    class="court-image"
+                >
+
+                <span class="court-rating">★ 4.7</span>
+
+            </div>
+
+            <div class="court-content">
+
+                <h3>La Chorrera Volley Court</h3>
+
+                <p class="court-location">
+                    La Chorrera, Panama West
+                </p>
+
+                <div class="court-price">
+                    <strong>$40</strong>
+                    <span>/ hour</span>
+                    <span class="court-arrow">↗</span>
+                </div>
+
+                <button
+                    class="book-button"
+                    data-court="volleyball"
+                >
+                    Book Court
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- TARJETA 3: FÚTBOL -->
+        <article class="court-card" data-sport="football">
+
+            <div class="court-image-container">
+
+                <img
+                    src="imagenes/football.jpg"
+                    alt="La Chorrera Turf Pitch"
+                    class="court-image"
+                >
+
+                <span class="court-rating">★ 4.8</span>
+
+            </div>
+
+            <div class="court-content">
+
+                <h3>La Chorrera Turf Pitch</h3>
+
+                <p class="court-location">
+                    La Chorrera, Panama West
+                </p>
+
+                <div class="court-price">
+                    <strong>$28</strong>
+                    <span>/ hour</span>
+                    <span class="court-arrow">↗</span>
+                </div>
+
+                <button
+                    class="book-button"
+                    data-court="football"
+                >
+                    Book Court
+                </button>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================
+     VENTANA DE RESERVA
+======================================== -->
+
+<div class="booking-overlay" id="bookingOverlay" hidden>
+
+    <div
+        class="booking-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="bookingTitle"
+    >
+
+        <!-- BOTÓN CERRAR -->
+        <button
+            class="close-modal"
+            id="closeModal"
+            aria-label="Close booking window"
+        >
+            ×
+        </button>
+
+        <!-- IMAGEN -->
+        <img
+            src=""
+            alt=""
+            class="booking-image"
+            id="bookingImage"
+        >
+
+        <!-- INFORMACIÓN -->
+        <div class="booking-content">
+
+            <h2 id="bookingTitle"></h2>
+
+            <p class="booking-location" id="bookingLocation"></p>
+
+            <!-- PRECIO Y DEPORTE -->
+            <div class="booking-summary">
+
+                <div>
+                    <span>PRICE PER HOUR</span>
+                    <strong id="bookingPrice"></strong>
+                </div>
+
+                <div class="booking-sport">
+                    <span>SPORT</span>
+                    <strong id="bookingSport"></strong>
+                </div>
+
+            </div>
+
+            <!-- DISPONIBILIDAD -->
+            <h3 class="availability-title">
+                AVAILABILITY
+            </h3>
+
+            <!-- DÍAS -->
+            <div class="date-options" id="dateOptions">
+
+                <button class="date-button active" data-day="0">
+                    Today
+                </button>
+
+                <button class="date-button" data-day="1">
+                    Tomorrow
+                </button>
+
+                <button class="date-button" data-day="2">
+                    <span id="thirdDay"></span>
+                </button>
+
+            </div>
+
+            horarios
+            <div class="time-grid" id="timeGrid">
+
+                <button class="time-button">9:00 AM</button>
+                <button class="time-button unavailable" disabled>
+                    10:00 AM
+                </button>
+                <button class="time-button">11:00 AM</button>
+
+                <button class="time-button">12:00 PM</button>
+                <button class="time-button unavailable" disabled>
+                    1:00 PM
+                </button>
+                <button class="time-button">2:00 PM</button>
+
+                <button class="time-button">3:00 PM</button>
+                <button class="time-button">4:00 PM</button>
+                <button class="time-button">5:00 PM</button>
+
+            </div>
+
+           confirmacion
+            <button class="confirm-booking" id="confirmBooking" disabled>
+                Select a time
+            </button>
+
+            <p class="booking-message" id="bookingMessage"></p>
+
+        </div>
+
+    </div>
+
+
+
+
+
+</html>
+
