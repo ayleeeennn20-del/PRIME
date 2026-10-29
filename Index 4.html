@@ -185,295 +185,395 @@
     </div>
 
 </section>
-<!-- ========================================
-     SECCIÓN COURTS
-======================================== -->
 
-<section class="courts-section" id="courts">
 
-    <!-- ENCABEZADO -->
+    </div>
+
+   <!-- COURTS -->
+<section id="Courts">
+ 
     <div class="courts-header">
+        <div class="courts-heading">
+            <p class="subtitle">SPORTS COURTS</p>
+            <h2>BOOK YOUR COURT IN<br> UNDER A MINUTE.</h2>
+        </div>
+ 
+        <button class="map-btn">View Interactive Map</button>
+    </div>
+ 
+    <div class="courts-filter">
+        <button class="filter-btn">All Sports</button>
+    </div>
+ 
+    <div class="courts-container">
+ 
+        <!-- Swimming Pool -->
+        <div class="tarjeta">
+            <div class="court-image">
+                <img src="imagenes/piscina.jpg" alt="Swimming Pool">
+                <span class="rating">★ 4.6</span>
+            </div>
+ 
+            <div class="court-info">
+                <h3>La Chorrera Municipal Pool</h3>
+                <p class="location">La Chorrera, Panama West</p>
+ 
+                <div class="court-price">
+                    <span class="price">$25</span>
+                    <span class="per-hour">/ hour</span>
+                </div>
+ 
+                <button class="book-btn">Book Court</button>
+            </div>
+        </div>
+ 
+        <!-- Volleyball Court -->
+        <div class="tarjeta">
+            <div class="court-image">
+                <img src="imagenes/voley.webp" alt="Volleyball Court">
+                <span class="rating">★ 4.7</span>
+            </div>
+ 
+            <div class="court-info">
+                <h3>La Chorrera Volley Court</h3>
+                <p class="location">La Chorrera, Panama West</p>
+ 
+                <div class="court-price">
+                    <span class="price">$40</span>
+                    <span class="per-hour">/ hour</span>
+                </div>
+ 
+                <button class="book-btn">Book Court</button>
+            </div>
+        </div>
+ 
+        <!-- Turf Pitch -->
+        <div class="tarjeta">
+            <div class="court-image">
+                <img src="imagenes/football.jpg" alt="La Chorrera Turf Pitch">
+                <span class="rating">★ 4.8</span>
+            </div>
+ <div class="court-info">
+                <h3>La Chorrera Turf Pitch</h3>
+                <p class="location">La Chorrera, Panama West</p>
+ 
+                <div class="court-price">
+                    <span class="price">$28</span>
+                    <span class="per-hour">/ hour</span>
+                </div>
+ 
+                <button class="book-btn">Book Court</button>
+            </div>
+        </div>
 
-        <div class="courts-title">
+<!-- BOOKING MODAL -->
+<div class="booking-overlay" id="bookingOverlay">
 
-            <p class="courts-label">
-                <span></span>
-                SPORTS COURTS
+    <div class="booking-modal" role="dialog"
+         aria-modal="true"
+         aria-labelledby="bookingTitle">
+
+        <!-- Imagen y botón para cerrar -->
+        <div class="booking-image-container">
+            <img id="bookingImage" src="" alt="Sports facility">
+
+            <button class="close-modal" id="closeModal"
+                    type="button" aria-label="Close booking window">
+                &times;
+            </button>
+        </div>
+
+        <!-- Información de la cancha -->
+        <div class="booking-content">
+
+            <h2 id="bookingTitle">Court Name</h2>
+
+            <p class="booking-location">
+                <span id="bookingLocation"></span>
+                <span class="booking-separator">·</span>
+                <span>★</span>
+                <span id="bookingRating"></span>
             </p>
 
-            <h2>
-                BOOK YOUR COURT IN<br>
-                UNDER A MINUTE.
-            </h2>
+            <!-- Precio y deporte -->
+            <div class="booking-details">
+
+                <div>
+                    <p class="booking-label">PRICE PER HOUR</p>
+                    <p class="booking-price" id="bookingPrice"></p>
+                </div>
+
+                <div class="booking-sport-container">
+                    <p class="booking-label">SPORT</p>
+                    <p class="booking-sport" id="bookingSport"></p>
+                </div>
+
+            </div>
+
+            <!-- Fechas disponibles -->
+            <p class="booking-label availability-title">
+                AVAILABILITY
+            </p>
+
+            <div class="booking-dates" id="bookingDates"></div>
+
+            <!-- Horarios disponibles -->
+            <div class="booking-times" id="bookingTimes"></div>
+
+            <!-- Confirmación de selección -->
+            <button class="select-time-btn" id="selectTimeBtn"
+                    type="button" disabled>
+                Select a time slot
+            </button>
+
+            <p class="booking-cancellation">
+                Free cancellation up to 2 hours before
+            </p>
+
+            <!-- Mensajes de estado -->
+            <p class="booking-message" id="bookingMessage"
+               aria-live="polite"></p>
 
         </div>
 
-        <button class="map-button" id="mapButton">
-            View Interactive Map
+    </div>
+
+</div>
+
+
+
+<!-- =========================================
+     PRIME - ACCOUNT / SIGN IN
+========================================= -->
+
+<section id="accountPage" class="account-page">
+
+    <!-- TOP BAR -->
+    <div class="account-topbar">
+
+        <span class="account-label">
+            <span class="account-line"></span>
+            ACCOUNT
+        </span>
+
+        <button
+            type="button"
+            class="back-courts-btn"
+            id="backToCourts"
+        >
+            ↑ Back to Courts
         </button>
 
     </div>
 
-    <!-- FILTRO DE DEPORTES -->
-    <div class="sports-filter">
 
-        <button class="filter-button active" data-filter="all">
-            All Sports
-        </button>
+    <!-- PAGE TITLE -->
+    <h1 class="account-title" id="accountHeading">
+        SIGN IN
+    </h1>
 
-        <button class="filter-button" data-filter="swimming">
-            Swimming
-        </button>
 
-        <button class="filter-button" data-filter="volleyball">
-            Volleyball
-        </button>
+    <!-- MAIN CONTENT -->
+    <div class="account-layout">
 
-        <button class="filter-button" data-filter="football">
-            Football
-        </button>
+        <!-- LEFT: FORM -->
+        <div class="account-form-column">
 
-    </div>
-
-    <!-- TARJETAS DE CANCHAS -->
-    <div class="courts-grid">
-
-        <!-- TARJETA 1: PISCINA -->
-        <article class="court-card" data-sport="swimming">
-
-            <div class="court-image-container">
-
-                <img
-                    src="imagenes/piscina.jpg"
-                    alt="La Chorrera Municipal Pool"
-                    class="court-image"
-                >
-
-                <span class="court-rating">★ 4.6</span>
-
+            <div class="account-notice" id="accountNotice">
+                <span>✓</span>
+                <p>
+                    Please sign in or create an account
+                    to finalize your booking.
+                </p>
             </div>
 
-            <div class="court-content">
 
-                <h3>La Chorrera Municipal Pool</h3>
+            <form id="accountForm">
 
-                <p class="court-location">
-                    La Chorrera, Panama West
-                </p>
+                <label for="accountEmail">EMAIL</label>
 
-                <div class="court-price">
-                    <strong>$25</strong>
-                    <span>/ hour</span>
-                    <span class="court-arrow">↗</span>
+                <input
+                    type="email"
+                    id="accountEmail"
+                    placeholder="youremail@example.com"
+                    autocomplete="email"
+                    required
+                >
+
+
+                <label for="accountPassword">PASSWORD</label>
+
+                <div class="password-wrapper">
+
+                    <input
+                        type="password"
+                        id="accountPassword"
+                        placeholder="At least 8 characters"
+                        minlength="8"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        id="togglePassword"
+                        class="toggle-password"
+                        aria-label="Show password"
+                    >
+                        ◎
+                    </button>
+
                 </div>
 
-                <button
-                    class="book-button"
-                    data-court="pool"
-                >
-                    Book Court
-                </button>
-                
-            </div>
 
-        </article>
+                <div class="account-options">
 
+                    <label class="remember-option">
+                        <input type="checkbox" id="rememberMe">
+                        <span>Remember me</span>
+                    </label>
 
-        <!-- TARJETA 2: VOLEIBOL -->
-        <article class="court-card" data-sport="volleyball">
+                    <button
+                        type="button"
+                        class="text-action"
+                        id="forgotPassword"
+                    >
+                        Forgot password?
+                    </button>
 
-            <div class="court-image-container">
-
-                <img
-                    src="imagenes/voley.webp"
-                    alt="La Chorrera Volley Court"
-                    class="court-image"
-                >
-
-                <span class="court-rating">★ 4.7</span>
-
-            </div>
-
-            <div class="court-content">
-
-                <h3>La Chorrera Volley Court</h3>
-
-                <p class="court-location">
-                    La Chorrera, Panama West
-                </p>
-
-                <div class="court-price">
-                    <strong>$40</strong>
-                    <span>/ hour</span>
-                    <span class="court-arrow">↗</span>
                 </div>
 
+
                 <button
-                    class="book-button"
-                    data-court="volleyball"
+                    type="submit"
+                    class="account-submit-btn"
+                    id="accountSubmit"
                 >
-                    Book Court
+                    SIGN IN
                 </button>
 
-            </div>
 
-        </article>
-
-
-        <!-- TARJETA 3: FÚTBOL -->
-        <article class="court-card" data-sport="football">
-
-            <div class="court-image-container">
-
-                <img
-                    src="imagenes/football.jpg"
-                    alt="La Chorrera Turf Pitch"
-                    class="court-image"
-                >
-
-                <span class="court-rating">★ 4.8</span>
-
-            </div>
-
-            <div class="court-content">
-
-                <h3>La Chorrera Turf Pitch</h3>
-
-                <p class="court-location">
-                    La Chorrera, Panama West
-                </p>
-
-                <div class="court-price">
-                    <strong>$28</strong>
-                    <span>/ hour</span>
-                    <span class="court-arrow">↗</span>
+                <div class="account-divider">
+                    <span></span>
+                    <p>or continue with</p>
+                    <span></span>
                 </div>
 
-                <button
-                    class="book-button"
-                    data-court="football"
-                >
-                    Book Court
+
+                <div class="social-buttons">
+
+                    <button
+                        type="button"
+                        class="social-btn"
+                        id="googleButton"
+                    >
+                        <span>🌐</span>
+                        Google
+                    </button>
+
+                    <button
+                        type="button"
+                        class="social-btn"
+                        id="appleButton"
+                    >
+                        <span>●</span>
+                        Apple
+                    </button>
+
+                </div>
+
+
+                <p class="create-account-text" id="accountSwitchText">
+                    Don't have an account?
+
+                    <button
+                        type="button"
+                        class="text-action"
+                        id="switchAccountMode"
+                    >
+                        Create one
+                    </button>
+                </p>
+
+                <p
+                    class="account-feedback"
+                    id="accountFeedback"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+
+            </form>
+
+        </div>
+
+
+        <!-- RIGHT: HELP / FAQ -->
+        <div class="account-help-column">
+
+            <div class="faq-item">
+
+                <button type="button" class="faq-question">
+                    How do I create an account?
+                    <span>+</span>
                 </button>
+
+                <div class="faq-answer">
+                    Click "Create one", enter your name,
+                    email and password, and submit the form.
+                </div>
 
             </div>
 
-        </article>
+
+            <div class="faq-item">
+
+                <button type="button" class="faq-question">
+                    Is my data secure?
+                    <span>+</span>
+                </button>
+
+                <div class="faq-answer">
+                    Your account information should be handled
+                    securely by the website's authentication system.
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button type="button" class="faq-question">
+                    Can I sign in with Google or Apple?
+                    <span>+</span>
+                </button>
+
+                <div class="faq-answer">
+                    These options require Google or Apple
+                    authentication to be configured.
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button type="button" class="faq-question">
+                    What if I forget my password?
+                    <span>+</span>
+                </button>
+
+                <div class="faq-answer">
+                    Use the "Forgot password?" option to begin
+                    the password recovery process.
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
 </section>
-
-
-<!-- ========================================
-     VENTANA DE RESERVA
-======================================== -->
-
-<div class="booking-overlay" id="bookingOverlay" hidden>
-
-    <div
-        class="booking-modal"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="bookingTitle"
-    >
-
-        <!-- BOTÓN CERRAR -->
-        <button
-            class="close-modal"
-            id="closeModal"
-            aria-label="Close booking window"
-        >
-            ×
-        </button>
-
-        <!-- IMAGEN -->
-        <img
-            src=""
-            alt=""
-            class="booking-image"
-            id="bookingImage"
-        >
-
-        <!-- INFORMACIÓN -->
-        <div class="booking-content">
-
-            <h2 id="bookingTitle"></h2>
-
-            <p class="booking-location" id="bookingLocation"></p>
-
-            <!-- PRECIO Y DEPORTE -->
-            <div class="booking-summary">
-
-                <div>
-                    <span>PRICE PER HOUR</span>
-                    <strong id="bookingPrice"></strong>
-                </div>
-
-                <div class="booking-sport">
-                    <span>SPORT</span>
-                    <strong id="bookingSport"></strong>
-                </div>
-
-            </div>
-
-            <!-- DISPONIBILIDAD -->
-            <h3 class="availability-title">
-                AVAILABILITY
-            </h3>
-
-            <!-- DÍAS -->
-            <div class="date-options" id="dateOptions">
-
-                <button class="date-button active" data-day="0">
-                    Today
-                </button>
-
-                <button class="date-button" data-day="1">
-                    Tomorrow
-                </button>
-
-                <button class="date-button" data-day="2">
-                    <span id="thirdDay"></span>
-                </button>
-
-            </div>
-
-            horarios
-            <div class="time-grid" id="timeGrid">
-
-                <button class="time-button">9:00 AM</button>
-                <button class="time-button unavailable" disabled>
-                    10:00 AM
-                </button>
-                <button class="time-button">11:00 AM</button>
-
-                <button class="time-button">12:00 PM</button>
-                <button class="time-button unavailable" disabled>
-                    1:00 PM
-                </button>
-                <button class="time-button">2:00 PM</button>
-
-                <button class="time-button">3:00 PM</button>
-                <button class="time-button">4:00 PM</button>
-                <button class="time-button">5:00 PM</button>
-
-            </div>
-
-           confirmacion
-            <button class="confirm-booking" id="confirmBooking" disabled>
-                Select a time
-            </button>
-
-            <p class="booking-message" id="bookingMessage"></p>
-
-        </div>
-
-    </div>
-
-
-
-
-
+<script src="script.js" defer></script>
+</body>
 </html>
-
