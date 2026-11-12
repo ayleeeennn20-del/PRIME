@@ -1,0 +1,649 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRIME</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <img src="Logo blanco sin fondo.png" alt="Logo Prime" class="logo-esquina">
+    </header>
+
+    <!-- NAVEGACIÓN PRINCIPAL CONFIGURADA -->
+    <nav>
+        <a href="#home" class="link-home">Home</a>
+        <a href="#Courts" class="link-courts">Courts</a>
+        <a href="community.html" class="link-community">Community</a>
+        <a href="blog.html" class="link-blog">Blog</a>
+        <a href="#contact" class="link-contact">Contact</a>
+        <a href="#accountPage" class="button-signin">Sign In</a>
+    </nav>
+
+    <main class="hero" id="home">
+
+        <p class="eyebrow">sports platform</p>
+        
+        <h1>
+            CONNECT, TRAIN<br>
+            AND PLAY,<br>
+            WITH <span>PRIME.</span>
+        </h1>
+     
+        <p class="description">
+            Find courts, meet certified coaches, and organize<br class="desktop-break">
+            matches with a sports community all in one place.
+        </p>
+
+        <!-- Línea divisoria -->
+        <div class="divider"></div>
+
+        <!-- Estadísticas -->
+        <section class="stats">
+            <div class="stat">
+                <h2>+30</h2>
+                <p>Courts Available</p>
+            </div>
+            <div class="stat">
+                <h2>+50</h2>
+                <p>Certified Coaches</p>
+            </div>
+            <div class="stat">
+                <h2>+500</h2>
+                <p>Active Users</p>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- SECCIÓN YOUR PROFILE -->
+    <section class="profile-section">
+        <div class="profile-header">
+            <p class="section-label">
+                <span class="orange-line"></span>
+                YOUR PROFILE
+            </p>
+            <h2>YOUR PROGRESS, ALWAYS IN VIEW.</h2>
+            <p class="profile-description">
+                A personal dashboard with your favorite sports, stats, and upcoming
+                <br class="desktop-break">
+                matches, ready as soon as you log in.
+            </p>
+        </div>
+
+        <div class="profile-grid">
+            <!-- TARJETA DE PERFIL -->
+            <div class="profile-card">
+                <div class="user-info">
+                    <div class="user-avatar">JR</div>
+                    <div class="user-details">
+                        <h3>Julia Reyes</h3>
+                        <p>Panama City · Intermediate level</p>
+                    </div>
+                </div>
+
+                <div class="sports-list">
+                    <span>Soccer 5-a-side</span>
+                    <span>Padel</span>
+                    <span>Running</span>
+                </div>
+
+                <div class="profile-stats">
+                    <div class="profile-stat">
+                        <h3>42</h3>
+                        <p>MATCHES</p>
+                    </div>
+                    <div class="profile-stat">
+                        <h3>19</h3>
+                        <p>WORKOUTS</p>
+                    </div>
+                    <div class="profile-stat">
+                        <h3>7</h3>
+                        <p>ACHIEVEMENTS</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA DE PRÓXIMOS PARTIDOS -->
+            <div class="matches-card">
+                <p class="section-label matches-label">
+                    <span class="orange-line"></span>
+                    UPCOMING MATCHES
+                </p>
+
+                <div class="match">
+                    <div class="match-date">
+                        <strong>18</strong>
+                        <span>JUL</span>
+                    </div>
+                    <div class="match-info">
+                        <h3>Soccer 5 — Los Halcones</h3>
+                        <p>Estadio Agustín "Muquita" Sánchez · 7:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="match">
+                    <div class="match-date">
+                        <strong>21</strong>
+                        <span>JUL</span>
+                    </div>
+                    <div class="match-info">
+                        <h3>Coaching session — Padel</h3>
+                        <p>Complejo Deportivo de La Feria de La Chorrera · 6:30 AM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COURTS -->
+    <section id="Courts">
+        <div class="courts-header">
+            <div class="courts-heading">
+                <p class="subtitle">SPORTS COURTS</p>
+                <h2>BOOK YOUR COURT IN<br> UNDER A MINUTE.</h2>
+            </div>
+          <button type="button" class="map-btn">View Interactive Map</button>
+        </div>
+     
+        <div class="courts-filter">
+            <button class="filter-btn">All Sports</button>
+        </div>
+     
+        <div class="courts-container">
+            <!-- Swimming Pool -->
+            <div class="tarjeta">
+                <div class="court-image">
+                    <img src="imagenes/piscina.jpg" alt="Swimming Pool">
+                    <span class="rating">★ 4.6</span>
+                </div>
+                <div class="court-info">
+                    <h3>La Chorrera Municipal Pool</h3>
+                    <p class="location">La Chorrera, Panama West</p>
+                    <div class="court-price">
+                        <span class="price">$25</span>
+                        <span class="per-hour">/ hour</span>
+                    </div>
+                    <button class="book-btn">Book Court</button>
+                </div>
+            </div>
+        
+            <!-- Volleyball Court -->
+            <div class="tarjeta">
+                <div class="court-image">
+                    <img src="imagenes/voley.webp" alt="Volleyball Court">
+                    <span class="rating">★ 4.7</span>
+                </div>
+                <div class="court-info">
+                    <h3>La Chorrera Volley Court</h3>
+                    <p class="location">La Chorrera, Panama West</p>
+                    <div class="court-price">
+                        <span class="price">$40</span>
+                        <span class="per-hour">/ hour</span>
+                    </div>
+                    <button class="book-btn">Book Court</button>
+                </div>
+            </div>
+     
+            <!-- Turf Pitch -->
+            <div class="tarjeta">
+                <div class="court-image">
+                    <img src="imagenes/football.jpg" alt="La Chorrera Turf Pitch">
+                    <span class="rating">★ 4.8</span>
+                </div>
+                <div class="court-info">
+                    <h3>La Chorrera Turf Pitch</h3>
+                    <p class="location">La Chorrera, Panama West</p>
+                    <div class="court-price">
+                        <span class="price">$28</span>
+                        <span class="per-hour">/ hour</span>
+                    </div>
+                    <button class="book-btn">Book Court</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOOKING MODAL -->
+        <div class="booking-overlay" id="bookingOverlay">
+            <div class="booking-modal" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
+                <div class="booking-image-container">
+                    <img id="bookingImage" src="" alt="Sports facility">
+                    <button class="close-modal" id="closeModal" type="button" aria-label="Close booking window">&times;</button>
+                </div>
+
+                <div class="booking-content">
+                    <h2 id="bookingTitle">Court Name</h2>
+                    <p class="booking-location">
+                        <span id="bookingLocation"></span>
+                        <span class="booking-separator">·</span>
+                        <span>★</span>
+                        <span id="bookingRating"></span>
+                    </p>
+
+                    <div class="booking-details">
+                        <div>
+                            <p class="booking-label">PRICE PER HOUR</p>
+                            <p class="booking-price" id="bookingPrice"></p>
+                        </div>
+                        <div class="booking-sport-container">
+                            <p class="booking-label">SPORT</p>
+                            <p class="booking-sport" id="bookingSport"></p>
+                        </div>
+                    </div>
+
+                    <p class="booking-label availability-title">AVAILABILITY</p>
+                    <div class="booking-dates" id="bookingDates"></div>
+                    <div class="booking-times" id="bookingTimes"></div>
+
+                    <button class="select-time-btn" id="selectTimeBtn" type="button" disabled>Select a time slot</button>
+                    <p class="booking-cancellation">Free cancellation up to 2 hours before</p>
+                    <p class="booking-message" id="bookingMessage" aria-live="polite"></p>
+                </div>
+            </div>
+        </div>
+            
+        <!-- BARRA LATERAL IZQUIERDA: BUSCADOR, FILTROS Y LISTA DE CANCHAS -->
+        <div class="map-sidebar">
+            <div class="map-sidebar-top">
+                <div class="map-search-box">
+                    <input type="text" id="mapSearchInput" placeholder="Search a sports space...">
+                    <button type="button" id="clearSearchBtn">&times;</button>
+                </div>
+                <!-- Filtros de deportes -->
+                <div class="map-filter-tags">
+                    <button type="button" class="tag-btn active" data-filter="all">All</button>
+                    <button type="button" class="tag-btn" data-filter="football">Football</button>
+                    <button type="button" class="tag-btn" data-filter="baseball">Baseball</button>
+                    <button type="button" class="tag-btn" data-filter="multi">Multi-sport</button>
+                    <button type="button" class="tag-btn" data-filter="futsal">Futsal / Indoor</button>
+                </div>
+                <p class="spaces-counter" id="spacesCounter">7 SPACES</p>
+            </div>
+
+            <!-- Lista de Canchas estilo tarjeta -->
+            <div class="map-spaces-list" id="mapSpacesList">
+                
+                <div class="space-item" data-id="1" data-category="football" data-lat="8.8825" data-lng="-82.5850">
+                    <div class="space-badge football">Football</div>
+                    <h4>Estadio Agustín "Muquita" Sánchez</h4>
+                    <p class="space-address">📍 Calle Matuna, Barrio Colón, La Chorrera</p>
+                    <p class="space-desc">Historic football stadium since 1963, known locally as "La Cancha de la Cocobola". Home ground of San Francisco FC.</p>
+                </div>
+
+                <div class="space-item" data-id="2" data-category="baseball" data-lat="8.8780" data-lng="-82.5800">
+                    <div class="space-badge baseball">Baseball</div>
+                    <h4>Estadio Mariano Rivera</h4>
+                    <p class="space-address">📍 La Chorrera, Panamá Oeste (under construction)</p>
+                    <p class="space-desc">New baseball stadium and High Performance Baseball Center under construction in the district of La Chorrera.</p>
+                </div>
+
+                <div class="space-item" data-id="3" data-category="multi" data-lat="8.8810" data-lng="-82.5790">
+                    <div class="space-badge multi">Multi-sport</div>
+                    <h4>Complejo Deportivo 28 de Noviembre</h4>
+                    <p class="space-address">📍 Calle 21, Barrio Colón, La Chorrera</p>
+                    <p class="space-desc">Renovated municipal sports complex featuring a synthetic football pitch, a recreational court and athletics track.</p>
+                </div>
+
+                <div class="space-item" data-id="4" data-category="multi" data-lat="8.8750" data-lng="-82.5760">
+                    <div class="space-badge multi">Multi-sport</div>
+                    <h4>Complejo Deportivo Municipal de La Chorrera</h4>
+                    <p class="space-address">📍 Calle 34 y 35 Sur, Barrio Balboa, La Chorrera</p>
+                    <p class="space-desc">Municipal sports complex in Barrio Balboa, near the Club de Leones de La Chorrera. Hosts local leagues and events.</p>
+                </div>
+
+                <div class="space-item" data-id="5" data-category="futsal" data-lat="8.8850" data-lng="-82.5700">
+                    <div class="space-badge futsal">Futsal / Indoor</div>
+                    <h4>Canchas Aéreas Panamá Oeste</h4>
+                    <p class="space-address">📍 Av. Libertador (frente a la E/S Delta), Barrio Colón</p>
+                    <p class="space-desc">First rooftop/aerial courts in Panamá Oeste. Rentable futsal courts with an on-site sports bar and restaurant.</p>
+                </div>
+
+                <div class="space-item" data-id="6" data-category="multi" data-lat="8.9100" data-lng="-82.5500">
+                    <div class="space-badge gym">Fitness / Gym</div>
+                    <h4>Smart Fit Costa Verde</h4>
+                    <p class="space-address">📍 C.C. Plaza Central, Vía Interamericana, Costa Verde</p>
+                    <p class="space-desc">Modern fitness center in Plaza Central, Costa Verde. Equipped with cardio machines, free weights and group fitness.</p>
+                </div>
+
+                <div class="space-item" data-id="7" data-category="multi" data-lat="8.8800" data-lng="-82.5820">
+                    <div class="space-badge multi">Multi-sport</div>
+                    <h4>La Chorrera Municipal Pool</h4>
+                    <p class="space-address">📍 La Chorrera, Panamá Oeste</p>
+                    <p class="space-desc">Olympic-sized municipal pool facility used for local swimming training, water sports and public recreation.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CONTENEDOR DERECHO: MAPA INTERACTIVO REAL (LEAFLET) -->
+        <div class="map-interactive-container" id="mapOverlay" style="display: none;">
+            <!-- Botón para cerrar el mapa -->
+            <button class="close-map-modal" id="closeMapModal" type="button">&times;</button>
+            
+            <!-- Logo PRIME clickeable que lleva al inicio -->
+            <a href="#home" class="map-prime-logo" id="mapPrimeLogo"><b>PRIME</b></a>
+            
+            <!-- Contenedor donde corre el mapa libre -->
+            <div id="realLeafletMap" style="width: 100%; height: 100%;"></div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Librerías Leaflet CSS y JS (Necesarias para el mapa interactivo real que se aleja y acerca) -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    </section> 
+
+    <!-- PRIME - ACCOUNT / SIGN IN -->
+    <section id="accountPage" class="account-page">
+        <div class="account-topbar">
+            <span class="account-label">
+                <span class="account-line"></span>
+                ACCOUNT
+            </span>
+            <button type="button" class="back-courts-btn" id="backToCourts">↑ Back to Courts</button>
+        </div>
+
+        <h1 class="account-title" id="accountHeading">SIGN IN</h1>
+
+        <div class="account-layout">
+            <div class="account-form-column">
+                <div class="account-notice" id="accountNotice">
+                    <span>✓</span>
+                    <p>Please sign in or create an account to finalize your booking.</p>
+                </div>
+
+                <form id="accountForm">
+                    <label for="accountEmail">EMAIL</label>
+                    <input type="email" id="accountEmail" placeholder="youremail@example.com" autocomplete="email" required>
+
+                    <label for="accountPassword">PASSWORD</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="accountPassword" placeholder="At least 8 characters" minlength="8" autocomplete="current-password" required>
+                        <button type="button" id="togglePassword" class="toggle-password" aria-label="Show password">◎</button>
+                    </div>
+
+                    <div class="account-options">
+                        <label class="remember-option">
+                            <input type="checkbox" id="rememberMe">
+                            <span>Remember me</span>
+                        </label>
+                        <button type="button" class="text-action" id="forgotPassword">Forgot password?</button>
+                    </div>
+
+                    <button type="submit" class="account-submit-btn" id="accountSubmit">SIGN IN</button>
+
+                    <div class="account-divider">
+                        <span></span>
+                        <p>or continue with</p>
+                        <span></span>
+                    </div>
+
+                    <div class="social-buttons">
+                        <button type="button" class="social-btn" id="googleButton"><span>🌐</span> Google</button>
+                        <button type="button" class="social-btn" id="appleButton"><span>●</span> Apple</button>
+                    </div>
+
+                    <p class="create-account-text" id="accountSwitchText">
+                        Don't have an account?
+                        <button type="button" class="text-action" id="switchAccountMode">Create one</button>
+                    </p>
+                    <p class="account-feedback" id="accountFeedback" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+
+            <div class="account-help-column">
+                <div class="faq-item">
+                    <button type="button" class="faq-question">How do I create an account? <span>+</span></button>
+                    <div class="faq-answer">Click "Create one", enter your name, email and password, and submit the form.</div>
+                </div>
+                <div class="faq-item">
+                    <button type="button" class="faq-question">Is my data secure? <span>+</span></button>
+                    <div class="faq-answer">Your account information should be handled securely by the website's authentication system.</div>
+                </div>
+                <div class="faq-item">
+                    <button type="button" class="faq-question">Can I sign in with Google or Apple? <span>+</span></button>
+                    <div class="faq-answer">These options require Google or Apple authentication to be configured.</div>
+                </div>
+                <div class="faq-item">
+                    <button type="button" class="faq-question">What if I forget my password? <span>+</span></button>
+                    <div class="faq-answer">Use the "Forgot password?" option to begin the password recovery process.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMMUNITY SECTION -->
+    <section id="community" class="community-section">
+        <div class="community-header">
+            <div class="community-heading">
+                <p class="community-subtitle">COMMUNITY</p>
+                <h2 class="community-title">FIND YOUR<br> NEXT TEAM.</h2>
+                <p class="community-description">
+                    Create groups, organize matches, and share your progress
+                    <br class="desktop-break">
+                    with people who train like you.
+                </p>
+            </div>
+            <a href="community.html" class="community-readmore">
+                <span>Read more</span>
+                <span class="readmore-arrow">⟶</span>
+            </a>
+        </div>
+
+        <div class="community-container">
+            <div class="community-card">
+                <div class="community-card-header">
+                    <div class="community-members"><span></span><span></span><span></span></div>
+                    <div class="community-card-info">
+                        <h3>Los Halcones FC</h3>
+                        <p>14 members · Soccer 5</p>
+                    </div>
+                </div>
+                <p class="community-card-description">Looking for 2 players for Saturday's match in Costa del Este. Intermediate level.</p>
+                <div class="community-card-footer">
+                    <span>♥ 32</span><span>💬 8 comments</span><span>↗ Share</span>
+                </div>
+            </div>
+
+            <div class="community-card">
+                <div class="community-card-header">
+                    <div class="community-members two-members"><span></span><span></span></div>
+                    <div class="community-card-info">
+                        <h3>Padel at Dawn</h3>
+                        <p>9 members · Padel</p>
+                    </div>
+                </div>
+                <p class="community-card-description">Recurring group every Tuesday 6:00 AM in Albrook. Recommended for beginner level.</p>
+                <div class="community-card-footer">
+                    <span>♥ 21</span><span>💬 5 comments</span><span>↗ Share</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRIME IMPACT / THE SCOREBOARD SECTION -->
+    <section class="scoreboard-section" id="scoreboard">
+        <div class="scoreboard-container">
+            <div class="scoreboard-header">
+                <span class="scoreboard-eyebrow">─ PRIME IMPACT</span>
+                <h2 class="scoreboard-title">THE SCOREBOARD SPEAKS FOR US.</h2>
+            </div>
+
+            <div class="stats-banner">
+                <div class="stat-item"><span class="stat-number">+100</span><span class="stat-label">MATCHES PER WEEK</span></div>
+                <div class="stat-item"><span class="stat-number">+500</span><span class="stat-label">ACTIVE USERS</span></div>
+                <div class="stat-item"><span class="stat-number">+50</span><span class="stat-label">COACHES</span></div>
+                <div class="stat-item"><span class="stat-number">+30</span><span class="stat-label">COURTS</span></div>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"Thanks to Prime I found a team to play with every week. It completely changed my routine."</p>
+                    <div class="testimonial-author-row">
+                        <div class="testimonial-avatar mg-bg">MG</div>
+                        <div class="testimonial-info"><h4>Mariana Gómez</h4><span>Soccer 5 player</span></div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"Booking courts now takes less than a minute. I no longer waste time calling anyone."</p>
+                    <div class="testimonial-author-row">
+                        <div class="testimonial-avatar lt-bg">LT</div>
+                        <div class="testimonial-info"><h4>Luis Torres</h4><span>Match organizer</span></div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"I found a certified coach near my home. My level improved within weeks."</p>
+                    <div class="testimonial-author-row">
+                        <div class="testimonial-avatar av-bg">AV</div>
+                        <div class="testimonial-info"><h4>Andrea Vega</h4><span>Padel player</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG SECTION (INDEX PRINCIPAL) -->
+    <section class="blog-section" id="blogSection">
+        <div class="blog-container">
+            <div class="blog-header">
+                <span class="blog-eyebrow">─ BLOG</span>
+                <h2 class="blog-main-title">HEALTH, TRAINING AND COMMUNITY.</h2>
+            </div>
+
+            <div class="blog-card" id="blogCardTrigger">
+                <div class="blog-card-image">
+                    <img src="imagenes/descarga (1).jpg" alt="4 routines to boost your endurance">
+                </div>
+                <div class="blog-card-content">
+                    <span class="blog-tag">TRAINING</span>
+                    <h3 class="blog-card-title">4 routines to boost your endurance</h3>
+                    <div class="blog-card-meta">
+                        <span>Jul 28, 2026</span><span>·</span><span>By Coach Ricardo</span>
+                    </div>
+                    <div class="blog-card-arrow">→</div>
+                </div>
+            </div>
+
+            <div class="blog-read-more-wrapper">
+                <a href="blog.html" style="text-decoration: none; color: inherit; display: block;">
+                    <div class="blog-read-more-wrapper">
+                        <span class="blog-read-more-link" style="color: #ff5500; font-weight: bold; cursor: pointer;">
+                            Read More →
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE CONTACTO Y FOOTER -->
+    <section class="contact-footer-section" id="contact" style="background-color: #050505; color: #ffffff; padding: 80px 40px 40px 40px; font-family: 'Inter', sans-serif; border-top: 1px solid #1a1a1e;">
+        <div class="contact-faq-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1200px; margin: 0 auto 80px auto; align-items: start;">
+            
+            <div class="contact-form-column">
+                <span style="color: #ff5500; font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">— Contact</span>
+                <h2 style="font-family: 'Anton', Impact, sans-serif; font-size: clamp(36px, 5vw, 52px); text-transform: uppercase; margin: 10px 0 30px 0; line-height: 1;">LET'S TALK?</h2>
+                
+                <form onsubmit="event.preventDefault();" style="display: flex; flex-direction: column; gap: 20px;">
+                    <div>
+                        <label style="display: block; font-size: 11px; font-weight: 700; color: #8e8e93; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase;">Name</label>
+                        <input type="text" placeholder="Your full name" style="width: 100%; background-color: #111115; border: 1px solid #22222a; border-radius: 12px; padding: 14px 16px; color: #ffffff; font-family: inherit; font-size: 14px; box-sizing: border-box;">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 11px; font-weight: 700; color: #8e8e93; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase;">Email</label>
+                        <input type="email" placeholder="youremail@example.com" style="width: 100%; background-color: #111115; border: 1px solid #22222a; border-radius: 12px; padding: 14px 16px; color: #ffffff; font-family: inherit; font-size: 14px; box-sizing: border-box;">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 11px; font-weight: 700; color: #8e8e93; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase;">Message</label>
+                        <textarea placeholder="Tell us how we can help" style="width: 100%; background-color: #111115; border: 1px solid #22222a; border-radius: 12px; padding: 14px 16px; color: #ffffff; font-family: inherit; font-size: 14px; box-sizing: border-box; min-height: 120px; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" style="background-color: #ff5500; color: #ffffff; border: none; border-radius: 999px; padding: 16px; font-weight: 800; font-size: 14px; cursor: pointer; box-shadow: 0 4px 20px rgba(255, 85, 0, 0.4); text-align: center; transition: background-color 0.2s;">
+                        Send message
+                    </button>
+                </form>
+
+                <div style="display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap;">
+                    <a href="mailto:hello@prime.app" style="background-color: #111115; border: 1px solid #22222a; color: #ffffff; padding: 10px 18px; border-radius: 999px; font-size: 13px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">✉️ hello@prime.app</a>
+                    <a href="tel:+50760000000" style="background-color: #111115; border: 1px solid #22222a; color: #ffffff; padding: 10px 18px; border-radius: 999px; font-size: 13px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">📞 +507 6000-0000</a>
+                </div>
+            </div>
+
+            <div class="faq-column" style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="background-color: #111115; border: 1px solid #22222a; border-radius: 16px; padding: 20px 24px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                        <strong style="font-size: 15px; color: #ffffff;">How do I book a court?</strong>
+                        <span style="color: #ff5500; font-size: 18px; font-weight: bold;">✕</span>
+                    </div>
+                    <p style="color: #8e8e93; font-size: 13px; line-height: 1.5; margin: 12px 0 0 0;">Explore the court map, filter by sport and schedule, and confirm your booking in seconds.</p>
+                </div>
+                <div style="background-color: #111115; border: 1px solid #22222a; border-radius: 16px; padding: 20px 24px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                        <strong style="font-size: 15px; color: #ffffff;">Are the coaches certified?</strong>
+                        <span style="color: #8e8e93; font-size: 18px; font-weight: bold;">+</span>
+                    </div>
+                </div>
+                <div style="background-color: #111115; border: 1px solid #22222a; border-radius: 16px; padding: 20px 24px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                        <strong style="font-size: 15px; color: #ffffff;">Can I cancel a booking?</strong>
+                        <span style="color: #8e8e93; font-size: 18px; font-weight: bold;">+</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Inferior -->
+        <div class="site-footer" style="max-width: 1200px; margin: 0 auto; border-top: 1px solid #1a1a1e; padding-top: 60px;">
+            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px;">
+                <div>
+                    <a href="#home" style="font-family: 'Anton', sans-serif; font-size: 24px; color: #ffffff; text-decoration: none; display: inline-block; margin-bottom: 12px;">
+                        PRIME<span style="color: #ff5500;">.</span>
+                    </a>
+                    <p style="color: #8e8e93; font-size: 13px; line-height: 1.5; max-width: 280px; margin: 0 0 20px 0;">Connect, train, and play. The platform that unites the sports community.</p>
+                    <div style="display: flex; gap: 10px;">
+                        <a href="#" style="background-color: #111115; border: 1px solid #22222a; color: #ffffff; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; text-decoration: none;">IG</a>
+                        <a href="#" style="background-color: #111115; border: 1px solid #22222a; color: #ffffff; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; text-decoration: none;">FB</a>
+                        <a href="#" style="background-color: #111115; border: 1px solid #22222a; color: #ffffff; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; text-decoration: none;">TT</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 style="font-size: 11px; font-weight: 800; letter-spacing: 1px; color: #ffffff; text-transform: uppercase; margin-bottom: 16px;">Navigation</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
+                        <li><a href="#home" style="color: #8e8e93; text-decoration: none;">Home</a></li>
+                        <li><a href="#Courts" style="color: #8e8e93; text-decoration: none;">Courts</a></li>
+                        <li><a href="#scoreboard" style="color: #8e8e93; text-decoration: none;">Impact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 style="font-size: 11px; font-weight: 800; letter-spacing: 1px; color: #ffffff; text-transform: uppercase; margin-bottom: 16px;">Community</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
+                        <li><a href="community.html" style="color: #8e8e93; text-decoration: none;">Groups</a></li>
+                        <li><a href="blog.html" style="color: #8e8e93; text-decoration: none;">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 style="font-size: 11px; font-weight: 800; letter-spacing: 1px; color: #ffffff; text-transform: uppercase; margin-bottom: 16px;">Legal</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
+                        <li><a href="#" style="color: #8e8e93; text-decoration: none;">Terms and conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid #1a1a1e; padding-top: 25px; color: #666670; font-size: 12px;">
+                © 2026 Prime. All rights reserved.
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

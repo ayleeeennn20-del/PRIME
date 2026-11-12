@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRIME - Training & Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: #050505; color: #ffffff; margin: 0; font-family: 'Inter', sans-serif; scroll-behavior: smooth;">
+
+    <!-- HEADER / NAVEGACIÓN -->
+    <header style="padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1a1a1e; position: sticky; top: 0; background-color: #050505; z-index: 1000;">
+        <a href="Index 4.html" style="font-family: 'Anton', sans-serif; font-size: 24px; color: #ffffff; text-decoration: none;">
+            PRIME<span style="color: #ff5500;">.</span>
+        </a>
+        <a href="Index 4.html" style="color: #8e8e93; text-decoration: none; font-size: 14px; font-weight: 700;">← Back to Home</a>
+    </header>
+
+    <main class="blog-training-page">
+
+        <!-- 1. SECCIÓN INICIAL: HERO (Build Your Best Body) -->
+        <section class="training-hero" id="heroSection" style="padding: 80px 24px;">
+            <div class="training-hero-container" style="max-width: 1080px; margin: 0 auto;">
+                <span class="training-badge">🔥 PERSONAL TRAINING</span>
+                <h1 class="training-main-title">BUILD YOUR<br><span style="color: #ff5500;">BEST BODY</span></h1>
+                <p class="training-subtitle">Customize your workouts, track your progress, and train smarter. Edit routines to match your goals, schedule, and budget.</p>
+                
+                <div class="training-hero-buttons" style="display: flex; gap: 16px; margin-bottom: 50px;">
+                    <a href="#baseRoutinesSection" class="btn-orange" id="scrollToRoutinesBtn" style="text-decoration: none; display: inline-flex; align-items: center;">💪 View Routines</a>
+                    <a href="#customizeSection" class="btn-dark-outline" id="scrollToCustomizeBtn" style="text-decoration: none; display: inline-flex; align-items: center;">🎯 Customize Plan</a>
+                </div>
+
+                <div class="training-stats-banner" style="display: grid; grid-template-columns: repeat(3, max-content); gap: 50px; padding-top: 30px; border-top: 1px solid #1a1a1e;">
+                    <div class="t-stat">
+                        <h2 style="font-family: 'Anton', sans-serif; font-size: 36px; color: #ff5500; margin: 0;">6+</h2>
+                        <span style="font-size: 11px; color: #8e8e93; font-weight: 700; letter-spacing: 1px;">BASE ROUTINES</span>
+                    </div>
+                    <div class="t-stat">
+                        <h2 style="font-family: 'Anton', sans-serif; font-size: 36px; color: #ff5500; margin: 0;">100%</h2>
+                        <span style="font-size: 11px; color: #8e8e93; font-weight: 700; letter-spacing: 1px;">EDITABLE</span>
+                    </div>
+                    <div class="t-stat">
+                        <h2 style="font-family: 'Anton', sans-serif; font-size: 36px; color: #ff5500; margin: 0;">24/7</h2>
+                        <span style="font-size: 11px; color: #8e8e93; font-weight: 700; letter-spacing: 1px;">YOUR PACE</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. SEGUNDA SECCIÓN: BASE & CUSTOM ROUTINES -->
+        <section class="custom-plan-view" id="baseRoutinesSection" style="background-color: #050505; color: #ffffff; padding: 80px 24px; max-width: 1080px; margin: 0 auto; border-top: 1px solid #1a1a1e;">
+            <div class="plan-container">
+                <div class="plan-header-row" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; flex-wrap: wrap; gap: 20px;">
+                    <div>
+                        <span class="training-badge">💪 ROUTINES</span>
+                        <h2 class="section-title" style="font-family: 'Anton', sans-serif; font-size: 38px; text-transform: uppercase; margin: 10px 0 5px 0;">Base & Custom <span style="color: #ff5500;">Routines</span></h2>
+                        <p style="color: #8e8e93; font-size: 14px; margin: 0;">Pick a base routine and edit it to fit your needs — or create your own from scratch.</p>
+                    </div>
+                    <button type="button" class="btn-orange" id="newRoutineModalBtn">+ New Routine</button>
+                </div>
+
+                <!-- Filtros por categoría -->
+                <div class="plan-filters-row" id="planFilterButtons" style="display: flex; gap: 10px; margin-bottom: 30px; flex-wrap: wrap;">
+                    <button class="filter-chip active" data-filter="all">All</button>
+                    <button class="filter-chip" data-filter="Full Body">Full Body</button>
+                    <button class="filter-chip" data-filter="Upper Body">Upper Body</button>
+                    <button class="filter-chip" data-filter="Lower Body">Lower Body</button>
+                    <button class="filter-chip" data-filter="Core">Core</button>
+                    <button class="filter-chip" data-filter="Cardio">Cardio</button>
+                    <button class="filter-chip" data-filter="Custom">Custom</button>
+                </div>
+
+                <!-- Cuadrícula de Tarjetas de Rutinas -->
+                <div class="plan-cards-grid" id="planCardsGrid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;"></div>
+            </div>
+        </section>
+
+        <!-- 3. TERCERA SECCIÓN: CUSTOMIZE YOUR TRAINING -->
+        <section class="customize-training-view" id="customizeSection" style="padding: 80px 24px; max-width: 900px; margin: 0 auto; border-top: 1px solid #1a1a1e;">
+            <div class="customize-container" style="text-align: center;">
+                <span class="training-badge">🎯 PERSONALIZE</span>
+                <h2 style="font-family: 'Anton', sans-serif; font-size: clamp(36px, 5vw, 48px); text-transform: uppercase; margin: 10px 0;">Customize Your <span style="color: #ff5500;">Training</span></h2>
+                <p style="color: #8e8e93; font-size: 14px; margin-bottom: 40px;">Set your health, budget, and schedule — we'll match your routines accordingly.</p>
+
+                <!-- Tarjeta 1: Health Status -->
+                <div class="customize-card">
+                    <h3><span style="color: #ff5500; margin-right: 8px;">❤️</span> Health Status</h3>
+                    <div class="options-grid-2">
+                        <button type="button" class="option-pill active">Excellent</button>
+                        <button type="button" class="option-pill">Good</button>
+                        <button type="button" class="option-pill">Average</button>
+                        <button type="button" class="option-pill">Needs Attention</button>
+                    </div>
+                    <label class="sub-label">Fitness Level</label>
+                    <div class="options-grid-5">
+                        <button type="button" class="option-pill">Sedentary</button>
+                        <button type="button" class="option-pill active">Beginner</button>
+                        <button type="button" class="option-pill">Intermediate</button>
+                        <button type="button" class="option-pill">Advanced</button>
+                        <button type="button" class="option-pill">Athlete</button>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Budget & Economy -->
+                <div class="customize-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3 style="margin: 0;"><span style="color: #ff5500; margin-right: 8px;">💰</span> Budget & Economy</h3>
+                        <span id="budgetValue" style="font-family: 'Anton', sans-serif; font-size: 28px; color: #ff5500;">$50</span>
+                    </div>
+                    <label style="display: block; font-size: 13px; color: #8e8e93; text-align: left; margin-bottom: 10px;">Monthly Budget</label>
+                    <input type="range" id="budgetRange" min="0" max="500" value="50" style="width: 100%; accent-color: #ff5500; cursor: pointer; margin-bottom: 10px;">
+                    <div style="display: flex; justify-content: space-between; font-size: 12px; color: #666;">
+                        <span>$0</span>
+                        <span>$250</span>
+                        <span>$500</span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3: Schedule & Availability -->
+                <div class="customize-card">
+                    <h3><span style="color: #ff5500; margin-right: 8px;">⏱️</span> Schedule & Availability</h3>
+                    <label class="sub-label">Time of Day</label>
+                    <div class="options-grid-3">
+                        <button type="button" class="time-card active">
+                            <span>🌅</span>
+                            <strong>Morning</strong>
+                        </button>
+                        <button type="button" class="time-card">
+                            <span>☀️</span>
+                            <strong>Afternoon</strong>
+                        </button>
+                        <button type="button" class="time-card">
+                            <span>🌙</span>
+                            <strong>Evening</strong>
+                        </button>
+                    </div>
+                    <label class="sub-label">Preferred Days</label>
+                    <div class="days-grid">
+                        <button type="button" class="day-pill">Mon</button>
+                        <button type="button" class="day-pill">Tue</button>
+                        <button type="button" class="day-pill">Wed</button>
+                        <button type="button" class="day-pill">Thu</button>
+                        <button type="button" class="day-pill">Fri</button>
+                        <button type="button" class="day-pill">Sat</button>
+                        <button type="button" class="day-pill">Sun</button>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 4: Goals & Notes -->
+                <div class="customize-card">
+                    <h3><span style="color: #ff5500; margin-right: 8px;">📝</span> Goals & Notes</h3>
+                    <label class="sub-label">Your Goals</label>
+                    <textarea placeholder="e.g. Lose 10 lbs, build muscle, improve endurance..."></textarea>
+                    
+                    <label class="sub-label" style="margin-top: 15px;">Additional Notes</label>
+                    <textarea placeholder="Any injuries, preferences, or constraints..."></textarea>
+                </div>
+
+                <!-- Botón Guardar -->
+                <button type="button" class="btn-orange" style="width: 100%; padding: 18px; font-size: 15px; margin-top: 20px; border-radius: 14px; cursor: pointer;">
+                    💾 Save My Plan
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+    <!-- =========================================================
+         VENTANA MODAL: NEW ROUTINE / EDIT ROUTINE
+         ========================================================= -->
+    <div class="routine-modal-overlay" id="routineModal" style="display: none;">
+        <div class="routine-modal-content">
+            
+            <!-- Cabecera del Modal -->
+            <div class="modal-header">
+                <h3 id="modalTitle">NEW ROUTINE</h3>
+                <button type="button" class="modal-close-btn" id="closeModalBtn">✕</button>
+            </div>
+
+            <!-- Formulario -->
+            <div class="modal-form-body">
+                
+                <div class="form-group">
+                    <label>Routine Name</label>
+                    <input type="text" id="routineNameInput" placeholder="e.g. Morning Power Workout">
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="routineDescInput" placeholder="Brief description of the routine..."></textarea>
+                </div>
+
+                <div class="form-row-2">
+                    <div class="form-group">
+                        <label>Difficulty</label>
+                        <select id="routineDifficultyInput">
+                            <option value="Beginner">Beginner</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Advanced">Advanced</option>
+                            <option value="Athlete">Athlete</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select id="routineCategoryInput">
+                            <option value="Custom">Custom</option>
+                            <option value="Full Body">Full Body</option>
+                            <option value="Upper Body">Upper Body</option>
+                            <option value="Lower Body">Lower Body</option>
+                            <option value="Core">Core</option>
+                            <option value="Cardio">Cardio</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Duration (minutes)</label>
+                    <input type="number" id="routineDurationInput" value="30">
+                </div>
+
+                <div class="form-group">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <label style="margin: 0;">Exercises</label>
+                        <button type="button" class="btn-add-exercise">+ Add</button>
+                    </div>
+                    <div class="exercises-empty-box">
+                        No exercises yet. Click "+ Add" to start.
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Botones de Acción Inferiores -->
+            <div class="modal-footer">
+                <button type="button" class="btn-orange-create" id="saveRoutineBtn">Create Routine</button>
+                <button type="button" class="btn-cancel" id="cancelModalBtn">Cancel</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
