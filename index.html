@@ -6,8 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PRIME</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <!-- Leaflet first, then script.js (defer keeps this order and waits for the HTML) -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -31,7 +34,7 @@
         <p class="eyebrow">sports platform</p>
         
         <h1>
-            connect, TRAIN<br>
+            CONNECT, TRAIN<br>
             AND PLAY,<br>
             WITH <span>PRIME.</span>
         </h1>
@@ -149,7 +152,7 @@
                 <p class="subtitle">SPORTS COURTS</p>
                 <h2>BOOK YOUR COURT IN<br> UNDER A MINUTE.</h2>
             </div>
-          <button type="button" class="map-btn">View Interactive Map</button>
+          <button type="button" class="map-btn" id="openMapBtn">View Interactive Map</button>
         </div>
      
         <div class="courts-filter">
@@ -248,98 +251,44 @@
             </div>
         </div>
             
-        <!-- BARRA LATERAL IZQUIERDA: BUSCADOR, FILTROS Y LISTA DE CANCHAS -->
-        <div class="map-sidebar">
-            <div class="map-sidebar-top">
-                <div class="map-search-box">
-                    <input type="text" id="mapSearchInput" placeholder="Search a sports space...">
-                    <button type="button" id="clearSearchBtn">&times;</button>
+    </section>
+
+    <!-- ============================================
+         INTERACTIVE MAP (modal: sidebar + Leaflet map)
+         ============================================ -->
+    <div class="map-overlay" id="mapOverlay" aria-hidden="true">
+        <div class="map-modal-large" role="dialog" aria-modal="true" aria-labelledby="mapDialogTitle">
+
+            <!-- LEFT SIDEBAR: search, filters and list of spaces -->
+            <aside class="map-sidebar">
+                <div class="map-sidebar-top">
+                    <h2 class="map-dialog-title" id="mapDialogTitle">Sports spaces · La Chorrera</h2>
+
+                    <div class="map-search-box">
+                        <label for="mapSearchInput" class="sr-only">Search a sports space</label>
+                        <input type="search" id="mapSearchInput" placeholder="Search a sports space..." autocomplete="off">
+                        <button type="button" id="clearSearchBtn" aria-label="Clear search">&times;</button>
+                    </div>
+
+                    <!-- Sport filters (built from the data in script.js) -->
+                    <div class="map-filter-tags" id="mapFilterTags"></div>
+
+                    <p class="spaces-counter" id="spacesCounter" aria-live="polite"></p>
                 </div>
-                <!-- Filtros de deportes -->
-                <div class="map-filter-tags">
-                    <button type="button" class="tag-btn active" data-filter="all">All</button>
-                    <button type="button" class="tag-btn" data-filter="football">Football</button>
-                    <button type="button" class="tag-btn" data-filter="baseball">Baseball</button>
-                    <button type="button" class="tag-btn" data-filter="multi">Multi-sport</button>
-                    <button type="button" class="tag-btn" data-filter="futsal">Futsal / Indoor</button>
-                </div>
-                <p class="spaces-counter" id="spacesCounter">7 SPACES</p>
+
+                <!-- List of spaces (built from the data in script.js) -->
+                <div class="map-spaces-list" id="mapSpacesList"></div>
+            </aside>
+
+            <!-- RIGHT: real Leaflet map -->
+            <div class="map-interactive-container">
+                <button class="close-map-modal" id="closeMapModal" type="button" aria-label="Close map">&times;</button>
+                <a href="#home" class="map-prime-logo" id="mapPrimeLogo"><b>PRIME<span>.</span></b></a>
+                <div id="realLeafletMap"></div>
             </div>
 
-            <!-- Lista de Canchas estilo tarjeta -->
-            <div class="map-spaces-list" id="mapSpacesList">
-                
-                <div class="space-item" data-id="1" data-category="football" data-lat="8.8825" data-lng="-82.5850">
-                    <div class="space-badge football">Football</div>
-                    <h4>Estadio Agustín "Muquita" Sánchez</h4>
-                    <p class="space-address">📍 Calle Matuna, Barrio Colón, La Chorrera</p>
-                    <p class="space-desc">Historic football stadium since 1963, known locally as "La Cancha de la Cocobola". Home ground of San Francisco FC.</p>
-                </div>
-
-                <div class="space-item" data-id="2" data-category="baseball" data-lat="8.8780" data-lng="-82.5800">
-                    <div class="space-badge baseball">Baseball</div>
-                    <h4>Estadio Mariano Rivera</h4>
-                    <p class="space-address">📍 La Chorrera, Panamá Oeste (under construction)</p>
-                    <p class="space-desc">New baseball stadium and High Performance Baseball Center under construction in the district of La Chorrera.</p>
-                </div>
-
-                <div class="space-item" data-id="3" data-category="multi" data-lat="8.8810" data-lng="-82.5790">
-                    <div class="space-badge multi">Multi-sport</div>
-                    <h4>Complejo Deportivo 28 de Noviembre</h4>
-                    <p class="space-address">📍 Calle 21, Barrio Colón, La Chorrera</p>
-                    <p class="space-desc">Renovated municipal sports complex featuring a synthetic football pitch, a recreational court and athletics track.</p>
-                </div>
-
-                <div class="space-item" data-id="4" data-category="multi" data-lat="8.8750" data-lng="-82.5760">
-                    <div class="space-badge multi">Multi-sport</div>
-                    <h4>Complejo Deportivo Municipal de La Chorrera</h4>
-                    <p class="space-address">📍 Calle 34 y 35 Sur, Barrio Balboa, La Chorrera</p>
-                    <p class="space-desc">Municipal sports complex in Barrio Balboa, near the Club de Leones de La Chorrera. Hosts local leagues and events.</p>
-                </div>
-
-                <div class="space-item" data-id="5" data-category="futsal" data-lat="8.8850" data-lng="-82.5700">
-                    <div class="space-badge futsal">Futsal / Indoor</div>
-                    <h4>Canchas Aéreas Panamá Oeste</h4>
-                    <p class="space-address">📍 Av. Libertador (frente a la E/S Delta), Barrio Colón</p>
-                    <p class="space-desc">First rooftop/aerial courts in Panamá Oeste. Rentable futsal courts with an on-site sports bar and restaurant.</p>
-                </div>
-
-                <div class="space-item" data-id="6" data-category="multi" data-lat="8.9100" data-lng="-82.5500">
-                    <div class="space-badge gym">Fitness / Gym</div>
-                    <h4>Smart Fit Costa Verde</h4>
-                    <p class="space-address">📍 C.C. Plaza Central, Vía Interamericana, Costa Verde</p>
-                    <p class="space-desc">Modern fitness center in Plaza Central, Costa Verde. Equipped with cardio machines, free weights and group fitness.</p>
-                </div>
-
-                <div class="space-item" data-id="7" data-category="multi" data-lat="8.8800" data-lng="-82.5820">
-                    <div class="space-badge multi">Multi-sport</div>
-                    <h4>La Chorrera Municipal Pool</h4>
-                    <p class="space-address">📍 La Chorrera, Panamá Oeste</p>
-                    <p class="space-desc">Olympic-sized municipal pool facility used for local swimming training, water sports and public recreation.</p>
-                </div>
-
-            </div>
         </div>
-
-        <!-- CONTENEDOR DERECHO: MAPA INTERACTIVO REAL (LEAFLET) -->
-        <div class="map-interactive-container" id="mapOverlay" style="display: none;">
-            <!-- Botón para cerrar el mapa -->
-            <button class="close-map-modal" id="closeMapModal" type="button">&times;</button>
-            
-            <!-- Logo PRIME clickeable que lleva al inicio -->
-            <a href="#home" class="map-prime-logo" id="mapPrimeLogo"><b>PRIME</b></a>
-            
-            <!-- Contenedor donde corre el mapa libre -->
-            <div id="realLeafletMap" style="width: 100%; height: 100%;"></div>
-        </div>
-
     </div>
-</div>
-
-<!-- Librerías Leaflet CSS y JS (Necesarias para el mapa interactivo real que se aleja y acerca) -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    </section> 
 
     <!-- PRIME - ACCOUNT / SIGN IN -->
     <section id="accountPage" class="account-page">

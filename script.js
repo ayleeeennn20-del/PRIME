@@ -374,135 +374,373 @@ document.addEventListener("click", function(e) {
 });
 
 // ============================================
-// INICIALIZACIÓN DEL MAPA LEAFLET EN TU CONTENEDOR
+// SIGN IN PAGE - FAQ ACCORDION
 // ============================================
-let mapMarkersList = [];
+document.addEventListener("DOMContentLoaded", () => {
+    const faqItems = document.querySelectorAll("#accountPage .faq-item");
 
-function initPrimeMap() {
-    if (typeof L !== 'undefined' && document.getElementById('realLeafletMap')) {
-        if (!window.leafletMapInstance) {
-            // Coordenadas centradas en La Chorrera, Panamá Oeste
-            window.leafletMapInstance = L.map('realLeafletMap', {
-                zoomControl: false
-            }).setView([8.8810, -79.7860], 14);
+    faqItems.forEach((item, index) => {
+        const question = item.querySelector(".faq-question");
+        const answer = item.querySelector(".faq-answer");
+        if (!question || !answer) return;
 
-            L.control.zoom({ position: 'bottomright' }).addTo(window.leafletMapInstance);
+        answer.id = answer.id || `accountFaqAnswer${index + 1}`;
+        question.setAttribute("aria-expanded", "false");
+        question.setAttribute("aria-controls", answer.id);
 
-            // Capa gratuita de OpenStreetMap
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '&copy; OpenStreetMap contributors'
-            }).addTo(window.leafletMapInstance);
+        question.addEventListener("click", () => {
+            const willOpen = !item.classList.contains("open");
 
-            if (typeof initLeafletMarkers === 'function') {
-                initLeafletMarkers();
-            }
-        } else {
-            window.leafletMapInstance.invalidateSize();
-        }
-    }
-}
+            // Only one answer open at a time
+            faqItems.forEach(other => {
+                other.classList.remove("open");
+                other.querySelector(".faq-question")?.setAttribute("aria-expanded", "false");
+            });
 
-// Ejecutar al cargar la página si el mapa ya es visible, o llamarlo cuando abras tu contenedor
-document.addEventListener("DOMContentLoaded", function() {
-    initPrimeMap();
-
-    // Lógica para el botón de cerrar
-    const closeBtn = document.getElementById("closeMapModal");
-    if (closeBtn) {
-        closeBtn.addEventListener("click", function() {
-            const container = document.querySelector(".map-interactive-container");
-            if (container) {
-                container.style.display = "none"; // O la clase que uses para ocultarlo
+            if (willOpen) {
+                item.classList.add("open");
+                question.setAttribute("aria-expanded", "true");
             }
         });
-    }
+    });
 });
 
-function initLeafletMarkers() {
-    const spaceItems = document.querySelectorAll(".space-item");
-    mapMarkersList = [];
+// ============================================
+// PRIME - INTERACTIVE MAP (Leaflet + OpenStreetMap)
+// --------------------------------------------
+// To add, remove or move a space, edit ONLY this list.
+// lat / lng: right-click the place in Google Maps → copy the numbers.
+// La Chorrera is around lat 8.88, lng -79.78 (negative = west).
+// ============================================
+const PRIME_MAP_CENTER = [8.8835, -79.7800];   // La Chorrera
+const PRIME_MAP_ZOOM = 14;
 
-    spaceItems.forEach(item => {
-        const lat = parseFloat(item.dataset.lat);
-        const lng = parseFloat(item.dataset.lng);
-        const title = item.querySelector("h4").textContent;
-        const address = item.querySelector(".space-address").textContent;
+const PRIME_SPORT_FILTERS = [
+    { id: "all",      label: "All" },
+    { id: "football", label: "Football" },
+    { id: "baseball", label: "Baseball" },
+    { id: "multi",    label: "Multi-sport" },
+    { id: "futsal",   label: "Futsal / Indoor" },
+    { id: "gym",      label: "Fitness / Gym" },
+    { id: "pool",     label: "Swimming" }
+];
 
-        const marker = L.marker([lat, lng]).addTo(window.leafletMapInstance);
-        marker.bindPopup(`<b>${title}</b><br>${address}`);
+const PRIME_SPACES = [
+    {
+        id: 1, category: "football", badge: "Football",
+        name: 'Estadio Agustín "Muquita" Sánchez',
+        address: "Calle Matuna, Barrio Colón, La Chorrera",
+        lat: 8.8875, lng: -79.7756,
+        desc: 'Historic football stadium, known locally as "El Coloso de Matuna". Home ground of San Francisco FC and CAI.'
+    },
+    {
+        id: 2, category: "baseball", badge: "Baseball",
+        name: "Estadio Mariano Rivera",
+        address: "La Chorrera, Panamá Oeste (under construction)",
+        lat: 8.8735, lng: -79.7905,
+        desc: "New baseball stadium and High Performance Baseball Center under construction in the district of La Chorrera."
+    },
+    {
+        id: 3, category: "multi", badge: "Multi-sport",
+        name: "Complejo Deportivo 28 de Noviembre",
+        address: "Calle 21, Barrio Colón, La Chorrera",
+        lat: 8.8852, lng: -79.7795,
+        desc: "Renovated municipal sports complex with a synthetic football pitch, a recreational court and an athletics track."
+    },
+    {
+        id: 4, category: "multi", badge: "Multi-sport",
+        name: "Complejo Deportivo Municipal de La Chorrera",
+        address: "Calle 34 y 35 Sur, Barrio Balboa, La Chorrera",
+        lat: 8.8780, lng: -79.7860,
+        desc: "Municipal sports complex in Barrio Balboa, near the Club de Leones de La Chorrera. Hosts local leagues and events."
+    },
+    {
+        id: 5, category: "futsal", badge: "Futsal / Indoor",
+        name: "Canchas Aéreas Panamá Oeste",
+        address: "Av. Libertador (frente a la E/S Delta), Barrio Colón",
+        lat: 8.8828, lng: -79.7722,
+        desc: "First rooftop courts in Panamá Oeste. Rentable futsal courts with an on-site sports bar and restaurant."
+    },
+    {
+        id: 6, category: "gym", badge: "Fitness / Gym",
+        name: "Smart Fit Costa Verde",
+        address: "C.C. Plaza Central, Vía Interamericana, Costa Verde",
+        lat: 8.8990, lng: -79.7525,
+        desc: "Modern fitness center in Plaza Central, Costa Verde, with cardio machines, free weights and group classes."
+    },
+    {
+        id: 7, category: "pool", badge: "Swimming",
+        name: "La Chorrera Municipal Pool",
+        address: "La Chorrera, Panamá Oeste",
+        lat: 8.8818, lng: -79.7812,
+        desc: "Olympic-sized municipal pool used for swimming training, water sports and public recreation."
+    }
+];
 
-        item.addEventListener("click", () => {
-            spaceItems.forEach(i => i.classList.remove("highlighted"));
-            item.classList.add("highlighted");
-            window.leafletMapInstance.setView([lat, lng], 16, { animate: true });
-            marker.openPopup();
-        });
+const primeMap = {
+    instance: null,
+    markers: new Map(),     // id -> Leaflet marker
+    filter: "all",
+    search: "",
+    lastFocus: null
+};
 
-        mapMarkersList.push({ element: item, marker: marker, category: item.dataset.category });
+function escapeMapText(value) {
+    return String(value).replace(/[&<>"']/g, ch => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+    })[ch]);
+}
+
+// Orange PRIME pin (no external images needed)
+function primeMarkerIcon() {
+    return L.divIcon({
+        className: "prime-pin",
+        html: "<span></span>",
+        iconSize: [26, 26],
+        iconAnchor: [13, 26],
+        popupAnchor: [0, -24]
     });
 }
 
-document.addEventListener("click", function(e) {
-    const tagBtn = e.target.closest(".tag-btn");
-    if (!tagBtn || !window.leafletMapInstance) return;
+function buildMapFilters() {
+    const box = document.getElementById("mapFilterTags");
+    if (!box) return;
 
-    document.querySelectorAll(".tag-btn").forEach(b => b.classList.remove("active"));
-    tagBtn.classList.add("active");
+    box.innerHTML = PRIME_SPORT_FILTERS
+        .filter(f => f.id === "all" || PRIME_SPACES.some(s => s.category === f.id))
+        .map(f => `<button type="button" class="tag-btn${f.id === primeMap.filter ? " active" : ""}" data-filter="${f.id}" aria-pressed="${f.id === primeMap.filter}">${f.label}</button>`)
+        .join("");
+}
 
-    const filter = tagBtn.dataset.filter;
-    let count = 0;
+function buildMapList() {
+    const list = document.getElementById("mapSpacesList");
+    if (!list) return;
 
-    mapMarkersList.forEach(m => {
-        if (filter === "all" || m.category === filter) {
-            m.element.style.display = "block";
-            if (!window.leafletMapInstance.hasLayer(m.marker)) m.marker.addTo(window.leafletMapInstance);
-            count++;
-        } else {
-            m.element.style.display = "none";
-            if (window.leafletMapInstance.hasLayer(m.marker)) window.leafletMapInstance.removeLayer(window.leafletMapInstance);
+    list.innerHTML = PRIME_SPACES.map(space => `
+        <button type="button" class="space-item" data-id="${space.id}">
+            <span class="space-badge ${space.category}">${escapeMapText(space.badge)}</span>
+            <h4>${escapeMapText(space.name)}</h4>
+            <p class="space-address">📍 ${escapeMapText(space.address)}</p>
+            <p class="space-desc">${escapeMapText(space.desc)}</p>
+        </button>
+    `).join("") + `<p class="space-empty" id="mapEmptyState" hidden>No spaces match your search.</p>`;
+}
+
+function createLeafletMap() {
+    if (primeMap.instance || typeof L === "undefined") return;
+
+    const el = document.getElementById("realLeafletMap");
+    if (!el) return;
+
+    primeMap.instance = L.map(el, { zoomControl: false })
+        .setView(PRIME_MAP_CENTER, PRIME_MAP_ZOOM);
+
+    L.control.zoom({ position: "bottomright" }).addTo(primeMap.instance);
+
+    // Map tiles: Esri (free, no API key, works when the page is opened as a
+    // local file). OpenStreetMap blocks local files and CARTO now asks for a key.
+    // If the street map fails, it switches automatically to Esri's topographic map.
+    const primaryTiles = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}", {
+        maxZoom: 19,
+        attribution: "Tiles &copy; Esri &mdash; Esri, HERE, Garmin, OpenStreetMap contributors"
+    });
+
+    const backupTiles = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", {
+        maxZoom: 19,
+        attribution: "Tiles &copy; Esri"
+    });
+
+    let tileErrors = 0;
+    primaryTiles.on("tileerror", () => {
+        tileErrors++;
+        if (tileErrors === 3 && primeMap.instance.hasLayer(primaryTiles)) {
+            primeMap.instance.removeLayer(primaryTiles);
+            backupTiles.addTo(primeMap.instance);
         }
+    });
+
+    primaryTiles.addTo(primeMap.instance);
+
+    PRIME_SPACES.forEach(space => {
+        const directions = `https://www.google.com/maps/dir/?api=1&destination=${space.lat},${space.lng}`;
+
+        const marker = L.marker([space.lat, space.lng], {
+            icon: primeMarkerIcon(),
+            title: space.name
+        }).bindPopup(`
+            <strong>${escapeMapText(space.name)}</strong><br>
+            <small>${escapeMapText(space.address)}</small><br>
+            <a href="${directions}" target="_blank" rel="noopener">Get directions →</a>
+        `);
+
+        marker.on("click", () => highlightSpace(space.id, false));
+        marker.addTo(primeMap.instance);
+        primeMap.markers.set(space.id, marker);
+    });
+}
+
+// Shows/hides list items and pins according to the active filter + search
+function applyMapFilters() {
+    const term = primeMap.search.trim().toLowerCase();
+    const visible = [];
+
+    PRIME_SPACES.forEach(space => {
+        const matchesFilter = primeMap.filter === "all" || space.category === primeMap.filter;
+        const haystack = `${space.name} ${space.address} ${space.badge} ${space.desc}`.toLowerCase();
+        const matchesSearch = !term || haystack.includes(term);
+        const show = matchesFilter && matchesSearch;
+
+        const item = document.querySelector(`.space-item[data-id="${space.id}"]`);
+        if (item) item.hidden = !show;
+
+        const marker = primeMap.markers.get(space.id);
+        if (marker && primeMap.instance) {
+            if (show && !primeMap.instance.hasLayer(marker)) marker.addTo(primeMap.instance);
+            if (!show && primeMap.instance.hasLayer(marker)) primeMap.instance.removeLayer(marker);
+        }
+
+        if (show) visible.push(space);
     });
 
     const counter = document.getElementById("spacesCounter");
-    if (counter) counter.textContent = `${count} SPACES`;
-});
+    if (counter) counter.textContent = `${visible.length} ${visible.length === 1 ? "SPACE" : "SPACES"}`;
 
-document.addEventListener("input", function(e) {
-    if (e.target && e.target.id === "mapSearchInput") {
-        const term = e.target.value.toLowerCase();
-        let count = 0;
+    const empty = document.getElementById("mapEmptyState");
+    if (empty) empty.hidden = visible.length > 0;
 
-        mapMarkersList.forEach(m => {
-            const text = m.element.textContent.toLowerCase();
-            if (text.includes(term)) {
-                m.element.style.display = "block";
-                if (!window.leafletMapInstance.hasLayer(m.marker)) m.marker.addTo(window.leafletMapInstance);
-                count++;
-            } else {
-                m.element.style.display = "none";
-                if (window.leafletMapInstance.hasLayer(m.marker)) window.leafletMapInstance.removeLayer(window.leafletMapInstance);
-            }
+    const clearBtn = document.getElementById("clearSearchBtn");
+    if (clearBtn) clearBtn.hidden = !term;
+
+    // Fit the map to what is visible
+    if (primeMap.instance && visible.length) {
+        const bounds = L.latLngBounds(visible.map(s => [s.lat, s.lng]));
+        primeMap.instance.fitBounds(bounds, { padding: [50, 50], maxZoom: 16 });
+    }
+}
+
+function highlightSpace(id, moveMap = true) {
+    const space = PRIME_SPACES.find(s => s.id === id);
+    if (!space) return;
+
+    document.querySelectorAll(".space-item").forEach(item => {
+        item.classList.toggle("highlighted", Number(item.dataset.id) === id);
+    });
+
+    const item = document.querySelector(`.space-item[data-id="${id}"]`);
+    if (item) item.scrollIntoView({ block: "nearest", behavior: "smooth" });
+
+    const marker = primeMap.markers.get(id);
+    if (moveMap && primeMap.instance) {
+        primeMap.instance.setView([space.lat, space.lng], 16, { animate: true });
+    }
+    if (marker) marker.openPopup();
+}
+
+function openMapModal() {
+    const overlay = document.getElementById("mapOverlay");
+    if (!overlay) return;
+
+    if (typeof L === "undefined") {
+        alert("The map couldn't load. Check your internet connection and try again.");
+        return;
+    }
+
+    primeMap.lastFocus = document.activeElement;
+    overlay.classList.add("active");
+    overlay.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+
+    createLeafletMap();
+
+    // Leaflet must measure the container AFTER it becomes visible
+    requestAnimationFrame(() => {
+        primeMap.instance.invalidateSize();
+        applyMapFilters();
+    });
+
+    const search = document.getElementById("mapSearchInput");
+    if (search && window.matchMedia("(min-width: 901px)").matches) search.focus();
+}
+
+function closeMapModal() {
+    const overlay = document.getElementById("mapOverlay");
+    if (!overlay || !overlay.classList.contains("active")) return;
+
+    overlay.classList.remove("active");
+    overlay.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+
+    if (primeMap.instance) primeMap.instance.closePopup();
+    if (primeMap.lastFocus) primeMap.lastFocus.focus();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const overlay = document.getElementById("mapOverlay");
+    if (!overlay) return;   // community.html / blog.html have no map
+
+    buildMapFilters();
+    buildMapList();
+
+    document.getElementById("openMapBtn")?.addEventListener("click", openMapModal);
+    document.getElementById("closeMapModal")?.addEventListener("click", closeMapModal);
+
+    // Click on the dark background closes the map
+    overlay.addEventListener("click", e => {
+        if (e.target === overlay) closeMapModal();
+    });
+
+    // PRIME logo inside the map → close and go to the top
+    document.getElementById("mapPrimeLogo")?.addEventListener("click", e => {
+        e.preventDefault();
+        closeMapModal();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Filters
+    document.getElementById("mapFilterTags")?.addEventListener("click", e => {
+        const btn = e.target.closest(".tag-btn");
+        if (!btn) return;
+        primeMap.filter = btn.dataset.filter;
+        document.querySelectorAll("#mapFilterTags .tag-btn").forEach(b => {
+            const isActive = b === btn;
+            b.classList.toggle("active", isActive);
+            b.setAttribute("aria-pressed", String(isActive));
         });
+        applyMapFilters();
+    });
 
-        const counter = document.getElementById("spacesCounter");
-        if (counter) counter.textContent = `${count} SPACES`;
-    }
-});
+    // Search
+    const search = document.getElementById("mapSearchInput");
+    search?.addEventListener("input", () => {
+        primeMap.search = search.value;
+        applyMapFilters();
+    });
 
-document.addEventListener("click", function(e) {
-    if (e.target.id === "closeMapModal" || e.target.closest("#closeMapModal") || e.target.id === "mapOverlay" || e.target.id === "mapPrimeLogo") {
-        const mapOverlay = document.getElementById("mapOverlay");
-        if (mapOverlay) {
-            mapOverlay.style.display = "none";
-            mapOverlay.classList.remove("active");
+    document.getElementById("clearSearchBtn")?.addEventListener("click", () => {
+        if (!search) return;
+        search.value = "";
+        primeMap.search = "";
+        applyMapFilters();
+        search.focus();
+    });
+
+    // Click on a space in the list → fly to it
+    document.getElementById("mapSpacesList")?.addEventListener("click", e => {
+        const item = e.target.closest(".space-item");
+        if (item) highlightSpace(Number(item.dataset.id));
+    });
+
+    // Escape closes the map
+    document.addEventListener("keydown", e => {
+        if (e.key === "Escape") closeMapModal();
+    });
+
+    // Keep the map sized correctly when the window changes
+    window.addEventListener("resize", () => {
+        if (primeMap.instance && overlay.classList.contains("active")) {
+            primeMap.instance.invalidateSize();
         }
-        document.body.style.overflow = "";
-        if (e.target.id === "mapPrimeLogo" || e.target.closest("#mapPrimeLogo")) {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    }
+    });
 });
 
 // ============================================

@@ -5227,10 +5227,16 @@ body {
     line-height: 1.4;
 }
 .map-interactive-container {
-    position: relative; /* O fixed / absolute según tu diseño principal */
+    position: relative;
     width: 100%;
     height: 100%;
-    min-height: 400px;
+    min-height: 0;
+}
+
+#realLeafletMap {
+    width: 100%;
+    height: 100%;
+    background: #e9ecef;
 }
 
 .close-map-modal {
@@ -5244,9 +5250,11 @@ body {
     width: 36px;
     height: 36px;
     font-size: 20px;
+    line-height: 1;
     cursor: pointer;
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
+.close-map-modal:hover { color: #ff5500; }
 
 .map-prime-logo {
     position: absolute;
@@ -5262,13 +5270,91 @@ body {
 }
 .map-prime-logo span { color: #ff5500; }
 
-@media(max-width: 900px) {
+/* Map: title, list items as buttons, empty state */
+.map-dialog-title {
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    margin: 0 0 12px;
+    color: #111115;
+}
+.space-item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+}
+.space-item[hidden] { display: none; }
+.space-item:focus-visible,
+.tag-btn:focus-visible,
+.close-map-modal:focus-visible {
+    outline: 2px solid #ff5500;
+    outline-offset: 2px;
+}
+.space-badge.pool { background-color: #17a2b8; }
+.space-empty {
+    font-size: 13px;
+    color: #6c757d;
+    text-align: center;
+    padding: 20px 0;
+}
+#clearSearchBtn[hidden] { display: none; }
+.map-search-box input[type="search"]::-webkit-search-cancel-button { display: none; }
+
+/* Orange PRIME map pin */
+.prime-pin { background: none; border: none; }
+.prime-pin span {
+    display: block;
+    width: 26px;
+    height: 26px;
+    background: #ff5500;
+    border: 3px solid #fff;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    box-shadow: 0 3px 8px rgba(0,0,0,.35);
+}
+.leaflet-popup-content a { color: #ff5500; font-weight: 700; }
+
+.sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Mobile: list on top (scrollable), map below */
+@media (max-width: 900px) {
+    .map-overlay { padding: 0; }
     .map-modal-large {
         grid-template-columns: 1fr;
-        height: 90vh;
+        grid-template-rows: auto minmax(0, 1fr);
+        height: 100dvh;
+        max-height: 100dvh;
+        border-radius: 0;
     }
-    .map-sidebar { display: none; } /* En móvil se ve el mapa completo */
+    .map-sidebar {
+        display: flex;
+        max-height: 42dvh;
+        border-right: none;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .map-sidebar-top { padding: 14px 16px 10px; }
+    .map-dialog-title { padding-right: 0; }
+    .map-spaces-list {
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 10px 16px 14px;
+    }
+    .space-item { flex: 0 0 260px; }
+    .space-desc { display: none; }
 }
+
 /* ==========================================================
    CORRECCIÓN DEFINITIVA: DRAWER DE PERFIL DE ATLETAS
    ========================================================== */
@@ -5565,4 +5651,137 @@ body {
     border-color: #ff5e00 !important;
     color: #ffffff !important;
     transform: translateY(-2px);
+}
+
+/* ==========================================================
+   SIGN IN PAGE — FAQ + GOOGLE/APPLE BUTTONS (final fix)
+   Placed last so it overrides the older rules above.
+   ========================================================== */
+#accountPage .account-help-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#accountPage .faq-item {
+    background: #f4f4f5;
+    border: 1px solid #e4e4e7;
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 0;
+    min-height: 0;
+    height: auto;
+    transition: border-color .2s ease, background-color .2s ease;
+}
+
+#accountPage .faq-item:hover { border-color: #ffb38a; }
+
+#accountPage .faq-item.open {
+    background: #ffffff;
+    border-color: #ff5500;
+    box-shadow: 0 8px 24px rgba(255, 85, 0, .10);
+}
+
+#accountPage .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    min-height: 0;
+    height: auto;
+    margin: 0;
+    padding: 18px 22px;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    color: #111111;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.35;
+    text-align: left;
+    cursor: pointer;
+}
+
+#accountPage .faq-question span {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid #e4e4e7;
+    color: #ff5500;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    transition: transform .25s ease, background-color .2s ease, color .2s ease;
+}
+
+#accountPage .faq-item.open .faq-question span {
+    transform: rotate(45deg);
+    background: #ff5500;
+    border-color: #ff5500;
+    color: #ffffff;
+}
+
+#accountPage .faq-question:focus-visible {
+    outline: 2px solid #ff5500;
+    outline-offset: -2px;
+}
+
+#accountPage .faq-answer {
+    display: none;
+    padding: 0 22px 18px;
+    max-height: none;
+    opacity: 1;
+    color: #52525b;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+#accountPage .faq-item.open .faq-answer { display: block; }
+
+/* Google / Apple */
+#accountPage .social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 54px;
+    padding: 0 16px;
+    background: #ffffff;
+    border: 1px solid #e4e4e7;
+    border-radius: 16px;
+    color: #111111;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+#accountPage .social-btn:hover {
+    border-color: #ff5500;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+    transform: translateY(-1px);
+}
+
+#accountPage .social-btn:focus-visible {
+    outline: 2px solid #ff5500;
+    outline-offset: 2px;
+}
+
+#accountPage .social-btn span {
+    display: inline-grid;
+    place-items: center;
+    width: 20px;
+    font-size: 16px;
+    line-height: 1;
+}
+
+@media (max-width: 760px) {
+    #accountPage .faq-question { padding: 16px 18px; font-size: 14px; }
+    #accountPage .faq-answer { padding: 0 18px 16px; }
 }
